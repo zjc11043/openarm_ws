@@ -1,7 +1,4 @@
 <mujoco model="openarm_bimanual scene">
-<<<<<<< HEAD
-  <option timestep="0.001" iterations="200" integrator="implicitfast" solver="Newton" tolerance="1e-10" impratio="10">
-=======
 <option timestep="0.001" iterations="100" solver="Newton" tolerance="1e-10" impratio="10">
     <flag contact="enable" energy="enable"/>
 </option>
@@ -16,7 +13,6 @@
     <flag contact="enable" frictionloss="enable"/>
   </option> -->
   <option timestep="0.001"  iterations="200" integrator="implicitfast" solver="Newton" tolerance="1e-10" impratio="10">
->>>>>>> aff733e648f7db4132402974620806032e944173
     <flag contact="enable" frictionloss="enable" energy="enable"/>
   </option>
 
@@ -39,10 +35,6 @@
     <material name="mat_banana" texture="tex_banana" specular="0.5" shininess="0.5"/>
     <mesh name="mesh_banana_visual" file="011_banana/textured_simple.obj"/>
     <mesh name="mesh_banana_collision" file="011_banana/textured_simple.obj"/>
-<<<<<<< HEAD
-=======
-
->>>>>>> aff733e648f7db4132402974620806032e944173
   </asset>
 
   <worldbody>
@@ -50,10 +42,6 @@
     <geom name="floor" size="0 0 0.05" type="plane" material="groundplane"/>
 
     <body name="table" pos="0.35 0 0.15">
-<<<<<<< HEAD
-      <geom name="table_top" type="box" size="0.25 0.3 0.15" rgba="0.8 0.8 0.8 1"
-            friction="1 0.005 0.0001" contype="1" conaffinity="1" condim="3"/>
-=======
       <!-- 
         type="box": 盒子形状
         size="0.25 0.3 0.15": 半长宽高（全长为 0.5m x 0.6m x 0.3m）
@@ -70,21 +58,10 @@
             contype="1" 
             conaffinity="1" 
             condim="3"/>
->>>>>>> aff733e648f7db4132402974620806032e944173
     </body>
 
     <body name="banana" pos="0.35 0 0.35" euler="0 0 1.57">
       <joint name="banana_joint" type="free" damping="0.1" frictionloss="0.01"/> 
-<<<<<<< HEAD
-      <geom type="mesh" mesh="mesh_banana_visual" material="mat_banana" contype="0" conaffinity="0" group="1"/>
-      <inertial pos="0 0 0" mass="0.2" diaginertia="0.001 0.001 0.001"/> 
-      <geom type="capsule" size="0.02 0.06" euler="1.57 0 0" pos="0 0 0" contype="1" conaffinity="1" friction="1 0.05 0.01" group="3" />
-    </body>
-  </worldbody>
-  
-  <include file="openarm_bimanual_cam_v2.xml"/>
-</mujoco>
-=======
       <!-- 1. 视觉模型：保持 contype/conaffinity 为 0，通常放在 group 1 (渲染组) -->
       <geom type="mesh" mesh="mesh_banana_visual" material="mat_banana" 
             contype="0" conaffinity="0" group="1"/>
@@ -118,4 +95,3 @@
     </body> -->
   </worldbody>
 </mujoco>
->>>>>>> aff733e648f7db4132402974620806032e944173

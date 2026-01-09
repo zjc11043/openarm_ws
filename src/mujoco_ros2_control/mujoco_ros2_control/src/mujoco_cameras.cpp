@@ -1,7 +1,3 @@
-<<<<<<< HEAD
-#include <cstring>
-=======
->>>>>>> aff733e648f7db4132402974620806032e944173
 // Copyright (c) 2025 Erik Holum
 //
 // Permission is hereby granted, free of charge, to any person obtaining a copy

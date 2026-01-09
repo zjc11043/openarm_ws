@@ -1,9 +1,5 @@
 <mujoco model="two_link_planar scene">
-<<<<<<< HEAD
-
-=======
   
->>>>>>> aff733e648f7db4132402974620806032e944173
   <include file="two_link_planar.xml"/>
 
   <statistic center="0.2 0 0.2" extent="1.0"/>
@@ -15,44 +11,14 @@
   </visual>
 
   <asset>
-<<<<<<< HEAD
-    <texture type="skybox" builtin="gradient" rgb1="0.3 0.5 0.7" rgb2="0 0 0" width="512" height="512"/>
-    <texture type="2d" name="groundplane" builtin="checker" mark="edge" rgb1="0.2 0.3 0.4" rgb2="0.1 0.2 0.3" markrgb="0.8 0.8 0.8" width="300" height="300"/>
-    <material name="groundplane" texture="groundplane" texuniform="true" texrepeat="5 5"/>
-=======
     <texture type="skybox" builtin="gradient" rgb1="0.3 0.5 0.7" rgb2="0 0 0" width="512" height="3072"/>
     <texture type="2d" name="groundplane" builtin="checker" mark="edge" rgb1="0.2 0.3 0.4" rgb2="0.1 0.2 0.3"
       markrgb="0.8 0.8 0.8" width="300" height="300"/>
     <material name="groundplane" texture="groundplane" texuniform="true" texrepeat="5 5" reflectance="0.2"/>
->>>>>>> aff733e648f7db4132402974620806032e944173
   </asset>
 
   <worldbody>
     <light pos="0 0 1.5" dir="0 0 -1" directional="true"/>
     <geom name="floor" size="0 0 0.05" type="plane" material="groundplane"/>
-<<<<<<< HEAD
-
-    <body name="camera_link" pos="0.6 0.0 0.8" quat="0.924 0 0.383 0">
-      <camera name="d435_camera" fovy="60" />
-      <geom type="box" size="0.02 0.05 0.02" rgba="0.3 0.3 0.3 1" />
-    </body>
   </worldbody>
-
-  <sensor>
-    <fixed_camera name="rgb_camera" camera="d435_camera"/>
-  </sensor>
-
-  <extension>
-    <plugin name="mujoco_ros_sensors" filename="libmujoco_ros_sensors.so">
-      <ros>
-        <namespace>/</namespace>
-        <remapping>rgb_camera/out/image_raw:=/camera/color/image_raw</remapping>
-        <remapping>rgb_camera/out/camera_info:=/camera/color/camera_info</remapping>
-      </ros>
-    </plugin>
-  </extension>
-
-=======
-  </worldbody>
->>>>>>> aff733e648f7db4132402974620806032e944173
 </mujoco>
