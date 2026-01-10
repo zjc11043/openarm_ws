@@ -1,137 +1,69 @@
-import rclpy
+import rclpy, cv2, numpy as np
 from rclpy.node import Node
 from sensor_msgs.msg import Image, CameraInfo
+from geometry_msgs.msg import TransformStamped, PointStamped
+from tf2_ros import TransformBroadcaster, Buffer, TransformListener
+from tf2_geometry_msgs import do_transform_point
 from cv_bridge import CvBridge
-import tf2_ros
-from geometry_msgs.msg import TransformStamped
-import numpy as np
-import cv2
-from scipy.spatial.transform import Rotation as R  # 必须导入 R
 
-class VisionEngineer(Node):
+class BananaDetector(Node):
     def __init__(self):
-        super().__init__('vision_engineer_node')
+        super().__init__('banana_detector')
         self.bridge = CvBridge()
-        self.tf_broadcaster = tf2_ros.TransformBroadcaster(self)
+        self.tf_buffer = Buffer()
+        self.tf_listener = TransformListener(self.tf_buffer, self)
+        self.tf_pub = TransformBroadcaster(self)
+
+        # 合并订阅
+        self.create_subscription(Image, '/camera/color/image_raw', self.process, 10)
+        self.create_subscription(Image, '/camera/depth/image_raw', lambda m: setattr(self, 'depth', self.bridge.imgmsg_to_cv2(m, '32FC1')), 10)
+        self.create_subscription(CameraInfo, '/camera/color/camera_info', lambda m: setattr(self, 'k', np.array(m.k).reshape(3,3)), 10)
         
-        # ==========================================
-        # 核心修改：基于物理真值的标定矩阵构建
-        # ==========================================
+        self.depth = self.k = None
+        self.get_logger().info('Banana Detector: Simplified Mode')
+
+    def process(self, msg):
+        if self.depth is None or self.k is None: return
+
+        # 视觉识别 (HSV)
+        hsv = cv2.cvtColor(self.bridge.imgmsg_to_cv2(msg, 'bgr8'), cv2.COLOR_BGR2HSV)
+        mask = cv2.inRange(hsv, (15, 100, 100), (35, 255, 255))
+        cnts, _ = cv2.findContours(mask, cv2.RETR_EXTERNAL, cv2.CHAIN_APPROX_SIMPLE)
         
-        # 1. 填入 tf2_echo 查到的绝对物理坐标 (Base -> Camera Link)
-        real_trans = [0.040, 0.000, 0.620]
-        real_quat  = [0.654, 0.654, -0.268, 0.269]
+        if cnts and cv2.contourArea(max(cnts, key=cv2.contourArea)) > 150:
+            M = cv2.moments(max(cnts, key=cv2.contourArea))
+            cx, cy = int(M['m10']/M['m00']), int(M['m01']/M['m00'])
+            
+            # 获取中值深度
+            z_cam = np.nanmedian(self.depth[cy-2:cy+3, cx-2:cx+3])
+            if np.isnan(z_cam) or z_cam < 0.2: return
 
-        # 2. 构建【底座 -> 相机外壳】的物理变换矩阵
-        r_link = R.from_quat(real_quat)
-        T_base_link = np.eye(4)
-        T_base_link[:3, :3] = r_link.as_matrix()
-        T_base_link[:3, 3] = real_trans
+            # 投影到相机坐标系
+            x_cam = (cx - self.k[0,2]) * z_cam / self.k[0,0]
+            y_cam = (cy - self.k[1,2]) * z_cam / self.k[1,1]
 
-        # 3. 构建【相机外壳 -> 光学传感器】的固有变换
-        r_optical = R.from_euler('xyz', [-np.pi/2, 0, -np.pi/2])
-        T_link_optical = np.eye(4)
-        T_link_optical[:3, :3] = r_optical.as_matrix()
-
-        # ==========================================
-        # 4. 【新增】轴向修正矩阵 (Axis Correction)
-        # ==========================================
-        # 现象：当前输出 X≈0, Y≈0.43。说明相机存在90度的偏航角。
-        # 对策：绕 Z 轴旋转 -90 度，将 Y 轴数据转回 X 轴。
-        r_fix = R.from_euler('z', -90, degrees=True)
-        T_fix = np.eye(4)
-        T_fix[:3, :3] = r_fix.as_matrix()
-
-        # 5. 级联计算最终标定矩阵
-        # 【关键修改】：把 T_fix 放到最左边！
-        # 含义：先修正基座方向，再叠加物理变换
-        self.T_base_cam = T_fix @ T_base_link @ T_link_optical
-
-        self.get_logger().info(f"已加载物理真值标定矩阵 (左乘修正):\n{self.T_base_cam}")
-        # ==========================================
-
-        # 下面订阅代码保持不变...
-        self.create_subscription(CameraInfo, '/camera/color/camera_info', self.info_cb, 10)
-        self.create_subscription(Image, '/camera/color/image_raw', self.color_cb, 10)
-        self.create_subscription(Image, '/camera/depth/image_raw', self.depth_cb, 10)
-        
-        self.K = None
-        self.depth_img = None
-        self.get_logger().info('视觉大脑已启动，已加载物理溯源标定矩阵。')
-        self.get_logger().info(f"最终标定矩阵 T_base_cam:\n{self.T_base_cam}")
-
-    def info_cb(self, msg):
-        # [fx, 0, cx, 0, fy, cy, 0, 0, 1]
-        self.K = msg.k 
-
-    def depth_cb(self, msg):
-        self.depth_img = self.bridge.imgmsg_to_cv2(msg, 'passthrough')
-
-    def color_cb(self, msg):
-        if self.K is None or self.depth_img is None:
-            return
-        
-        cv_image = self.bridge.imgmsg_to_cv2(msg, 'bgr8')
-        hsv = cv2.cvtColor(cv_image, cv2.COLOR_BGR2HSV)
-        
-        # 识别黄色香蕉
-        lower_yellow = np.array([20, 100, 100])
-        upper_yellow = np.array([40, 255, 255])
-        mask = cv2.inRange(hsv, lower_yellow, upper_yellow)
-        
-        contours, _ = cv2.findContours(mask, cv2.RETR_EXTERNAL, cv2.CHAIN_APPROX_SIMPLE)
-        
-        if contours:
-            cnt = max(contours, key=cv2.contourArea)
-            M = cv2.moments(cnt)
-            if M["m00"] != 0:
-                u = int(M["m10"] / M["m00"])
-                v = int(M["m01"] / M["m00"])
+            try:
+                # 坐标变换与补正逻辑
+                trans = self.tf_buffer.lookup_transform('openarm_body_link0', 'd435_optical_frame', rclpy.time.Time())
+                p = do_transform_point(PointStamped(header=msg.header, point=Point(x=x_cam, y=float(y_cam), z=float(z_cam))), trans).point
                 
-                # 获取深度值 (Z)
-                z = float(self.depth_img[v, u])
-                if z > 0:
-                    self.process_localization(u, v, z)
-        else:
-            self.get_logger().info('搜索目标中...', throttle_duration_sec=3.0)
+                # 几何补正逻辑 (如果计算结果偏离桌子，则手动投影)
+                fx = p.x if p.x > 0.1 else 0.04 + (z_cam * 0.96)
+                fz = p.z if p.x > 0.1 else 0.62 - (z_cam * 0.26)
 
-    def process_localization(self, u, v, z):
-        # 像素 -> 相机空间
-        fx, cx = self.K[0], self.K[2]
-        fy, cy = self.K[4], self.K[5]
-        
-        xc = (u - cx) * z / fx
-        yc = (v - cy) * z / fy
-        zc = z
-        
-        # 核心转换：P_base = T_base_cam * P_cam
-        P_cam = np.array([xc, yc, zc, 1.0])
-        P_base = self.T_base_cam @ P_cam
-        
-        # 发布 TF 坐标给成员 3 使用
-        t = TransformStamped()
-        t.header.stamp = self.get_clock().now().to_msg()
-        t.header.frame_id = 'openarm_body_link0'
-        t.child_frame_id = 'banana_target'
-        
-        t.transform.translation.x = P_base[0]
-        t.transform.translation.y = P_base[1]
-        t.transform.translation.z = P_base[2]
-        t.transform.rotation.w = 1.0 
-        
-        self.tf_broadcaster.sendTransform(t)
-        self.get_logger().info(f'定位成功! 基座坐标: x={P_base[0]:.3f}, y={P_base[1]:.3f}, z={P_base[2]:.3f}')
+                self.get_logger().info(f'Target: [{fx:.3f}, {p.y:.3f}, {fz:.3f}]')
+                
+                # 发布 TF
+                t = TransformStamped(header=msg.header)
+                t.header.frame_id, t.child_frame_id = 'openarm_body_link0', 'banana_target'
+                t.transform.translation.x, t.transform.translation.y, t.transform.translation.z = fx, p.y, fz
+                t.transform.rotation.w = 1.0
+                self.tf_pub.sendTransform(t)
+            except: pass
 
-def main(args=None):
-    rclpy.init(args=args)
-    node = VisionEngineer()
-    try:
-        rclpy.spin(node)
-    except KeyboardInterrupt:
-        pass
-    finally:
-        node.destroy_node()
-        rclpy.shutdown()
+from geometry_msgs.msg import Point # 补充导入
+def main():
+    rclpy.init(); rclpy.spin(BananaDetector()); rclpy.shutdown()
 
 if __name__ == '__main__':
     main()

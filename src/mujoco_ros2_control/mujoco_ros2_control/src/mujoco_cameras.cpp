@@ -19,7 +19,7 @@
 // THE SOFTWARE.
 
 #include "mujoco_ros2_control/mujoco_cameras.hpp"
-
+#include <cstring>
 #include "sensor_msgs/image_encodings.hpp"
 
 namespace mujoco_ros2_control

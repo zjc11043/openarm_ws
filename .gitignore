@@ -1,50 +1,6 @@
-# ROS2 / colcon workspace build artifacts
 build/
 install/
 log/
-
-# Colcon / CMake / test temp files
-**/CMakeFiles/
-**/CMakeCache.txt
-**/cmake_install.cmake
-**/CTestTestfile.cmake
-**/CTestCustom.cmake
-**/CTestConfiguration.ini
-**/Makefile
-**/cmake_args.last
-**/colcon_command_prefix_build.sh
-**/colcon_command_prefix_build.sh.env
-**/colcon_build.rc
-**/ament_cmake_core/
-**/ament_cmake_environment_hooks/
-**/ament_cmake_index/
-**/ament_cmake_package_templates/
-**/ament_cmake_symlink_install/
-**/ament_cmake_symlink_install_targets_*/
-**/ament_cmake_uninstall_target/
-**/symlink_install_manifest.txt
-**/install_manifest.txt
-
-# Python bytecode / caches
-**/__pycache__/
-**/*.pyc
-**/*.pyo
-**/*.pyd
-
-# Editor / OS files
 .vscode/
-.idea/
-*.swp
-*.swo
-*~
-.DS_Store
-Thumbs.db
-
-# Local logs and temporary files
-MUJOCO_LOG.TXT
-*.log
-
-# Virtual environments
-.venv/
-venv/
-.env/
+__pycache__/
+*.pyc
