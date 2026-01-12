@@ -99,8 +99,9 @@ def generate_launch_description():
             ),
             
             # 延迟启动视觉模块和抓取规划模块，确保基础环境和相机已完全启动
+            # 注意：move_group 需要更多时间启动，所以延迟到 15 秒
             TimerAction(
-                period=8.0,  # 给 MuJoCo、控制器和相机更多时间启动（gripper controllers 在 3.5 秒启动）
+                period=15.0,  # 给 move_group 更多时间启动（move_group 通常在 5-10 秒后完全就绪）
                 actions=[vision_node, grasp_planner_node],
             ),
             
