@@ -123,7 +123,7 @@
     <visual>
       <origin xyz="0.35 0 0.35" rpy="0 0 1.57"/>
       <geometry>
-        <mesh filename="file:///home/zcj/openarm_ws/openarm_mujoco/v1/meshes/011_banana/textured_simple.obj"/>
+        <mesh filename="file:///home/zjc/openarm_ws/openarm_mujoco/v1/meshes/011_banana/textured_simple.obj"/>
       </geometry>
     </visual>
     <collision>
