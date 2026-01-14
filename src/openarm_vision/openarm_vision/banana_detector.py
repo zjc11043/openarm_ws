@@ -29,7 +29,7 @@ class BananaDetector(Node):
 
         # 将检测到的香蕉中心点在基座坐标系下沿 -Z 方向平移一点，
         # 让 banana_target 更接近香蕉底部（单位：米，可根据模型半径微调）
-        self.banana_z_offset = 0.02
+        self.banana_z_offset = 0.03
         
         # 黄色阈值 (根据环境光照微调)
         self.lower_yellow = np.array([20, 100, 100])

@@ -10,10 +10,12 @@ class GripperController(Node):
         super().__init__('gripper_controller_node')
         
         # 夹爪状态参数（根据 SRDF 定义：0.0=闭合，0.060=更大打开）
-        # 注意：位置值表示手指分开的距离，0.0 表示闭合，0.060 表示完全打开
-        self.gripper_open_position = 0.060  # 夹爪打开位置（手指分开）
-        self.gripper_closed_position = 0.0  # 夹爪闭合位置（手指靠拢）
-        self.gripper_max_effort = 50.0  # 最大抓取力
+        # 注意：位置值表示手指分开的距离，0.0 表示完全闭合，0.060 表示完全打开
+        self.gripper_open_position = 0.060   # 夹爪打开位置（手指分开）
+        # 稳定防滑模式：适当减小闭合距离，但不过度压入，避免弹飞
+        # 香蕉碰撞胶囊半径为 0.02，这里设置略大于 0.02，主要依靠高摩擦防滑
+        self.gripper_closed_position = 0.03  # 稍紧的闭合目标位置，兼顾防滑与稳定
+        self.gripper_max_effort = 70.0  # 适中最大抓取力，减小接触瞬间冲击
         
         # 创建Action客户端用于控制夹爪（双机械臂版本）
         self.left_gripper_client = ActionClient(
@@ -72,9 +74,29 @@ class GripperController(Node):
         
         # 设置目标位置
         target_position = self.gripper_closed_position if request.data else self.gripper_open_position
-        
-        # 只发送Action请求到左夹爪（根据用户要求，不操作右夹爪）
-        left_result = self.send_gripper_command(self.left_gripper_client, target_position, "左")
+
+        # 若为闭合命令，采用“多段闭合”策略，减小瞬时速度和冲击
+        if request.data:
+            from threading import Thread
+
+            def staged_close():
+                # 多段目标：从当前/打开位，依次缩小步长再到最终闭合值
+                # 这里使用 0.05  -> gripper_closed_position
+                import time
+                self.get_logger().info('开始多段闭合：阶段 1 -> 0.05')
+                self.send_gripper_command(self.left_gripper_client, 0.05, "左")
+                time.sleep(0.4)
+                self.get_logger().info('多段闭合：阶段 2 -> 0.045')
+                self.send_gripper_command(self.left_gripper_client, 0.045, "左")
+                time.sleep(0.4)
+                self.get_logger().info(f'多段闭合：阶段 3 -> 最终 {self.gripper_closed_position:.3f}')
+                self.send_gripper_command(self.left_gripper_client, self.gripper_closed_position, "左")
+
+            Thread(target=staged_close, daemon=True).start()
+            left_result = True
+        else:
+            # 打开时仍然一次性命令到打开位置即可
+            left_result = self.send_gripper_command(self.left_gripper_client, target_position, "左")
         
         if left_result:
             response.success = True

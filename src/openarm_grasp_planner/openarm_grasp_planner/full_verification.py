@@ -96,7 +96,7 @@ class FullVerificationSystem(Node):
             # 步骤3: 执行抓取动作（这里假设机械臂会自动执行发布的轨迹）
             self.get_logger().info('步骤3: 执行抓取动作')
             self.get_logger().info('注意：请确保机械臂控制器已启动并订阅grasp_trajectory话题')
-            time.sleep(8)  # 等待机械臂完成抓取动作
+            time.sleep(5)  # 等待机械臂完成抓取动作
             
             # 步骤4: 闭合夹爪
             self.get_logger().info('步骤4: 闭合夹爪')

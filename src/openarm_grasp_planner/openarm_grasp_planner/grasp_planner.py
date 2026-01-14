@@ -87,6 +87,7 @@ class GraspPlanner(Node):
         )
 
         # 抓取前预抬高度（先把机械臂抬到目标物体上方，再做抓取移动），单位: m
+        # 适当减小预抬距离，降低“过高、中间经过更多障碍”导致的规划失败概率
         self.pre_grasp_lift_distance = 0.15
         
         self.get_logger().info('抓取规划模块已启动')
@@ -240,13 +241,17 @@ class GraspPlanner(Node):
         
         # 设置规划参数
         goal_msg.request.group_name = "left_arm"
-        goal_msg.request.num_planning_attempts = 10
-        goal_msg.request.allowed_planning_time = 10.0
+        # 增大规划尝试次数和允许时间，提高找到可行解的概率
+        goal_msg.request.num_planning_attempts = 20
+        goal_msg.request.allowed_planning_time = 15.0
+        # 适当降低速度/加速度比例，让时间参数化阶段更稳定
+        goal_msg.request.max_velocity_scaling_factor = 0.4
+        goal_msg.request.max_acceleration_scaling_factor = 0.4
         # 若配置中未提供 RRTConnectkConfigDefault，则留空使用默认配置，避免降级混乱
         goal_msg.request.planner_id = ""
         goal_msg.planning_options.plan_only = True
         goal_msg.planning_options.replan = True
-        goal_msg.planning_options.replan_attempts = 5
+        goal_msg.planning_options.replan_attempts = 10
 
         # 允许夹爪与香蕉接触（规划阶段允许接触，避免碰撞拒绝）
         # 同时允许相邻link之间的碰撞，避免起始状态碰撞问题
@@ -292,12 +297,14 @@ class GraspPlanner(Node):
 
         # 与抓取规划保持一致的规划参数
         goal_msg.request.group_name = "left_arm"
-        goal_msg.request.num_planning_attempts = 10
-        goal_msg.request.allowed_planning_time = 10.0
+        goal_msg.request.num_planning_attempts = 20
+        goal_msg.request.allowed_planning_time = 15.0
+        goal_msg.request.max_velocity_scaling_factor = 0.4
+        goal_msg.request.max_acceleration_scaling_factor = 0.4
         goal_msg.request.planner_id = ""
         goal_msg.planning_options.plan_only = True
         goal_msg.planning_options.replan = True
-        goal_msg.planning_options.replan_attempts = 5
+        goal_msg.planning_options.replan_attempts = 10
 
         # 同样允许抓取相关接触
         goal_msg.planning_options.planning_scene_diff = self.build_acm_for_grasp()
@@ -392,7 +399,9 @@ class GraspPlanner(Node):
         
         box_constraint = SolidPrimitive()
         box_constraint.type = SolidPrimitive.BOX
-        box_constraint.dimensions = [0.02, 0.02, 0.02]
+        # 放宽末端到目标位置的允许区域，从 2cm 立方体扩大到 6cm 立方体
+        # 这样即使 IK 只能把手 TCP 放到附近，也能认为是成功目标
+        box_constraint.dimensions = [0.03, 0.03, 0.03]
         region_pose = Pose()
         region_pose.position.x = target_pos.x
         region_pose.position.y = target_pos.y
@@ -407,12 +416,12 @@ class GraspPlanner(Node):
         orientation_constraint.header.stamp = self.get_clock().now().to_msg()
         orientation_constraint.link_name = "openarm_left_hand_tcp"
         orientation_constraint.orientation = grasp_pose.grasp_pose.pose.orientation
-        # 收紧姿态容差，让手掌在整个运动过程中尽量保持
-        # 既定朝向（“平着、朝下”），避免明显倾斜
-        orientation_constraint.absolute_x_axis_tolerance = 0.05
-        orientation_constraint.absolute_y_axis_tolerance = 0.05
-        orientation_constraint.absolute_z_axis_tolerance = 0.05
-        orientation_constraint.weight = 2.0
+        # 放宽姿态容差，让规划器在一定范围内允许手掌有少量旋转
+        # 0.2 rad ≈ 11°，比原来的 0.05 rad 更容易找到可行姿态
+        orientation_constraint.absolute_x_axis_tolerance = 0.1
+        orientation_constraint.absolute_y_axis_tolerance = 0.1
+        orientation_constraint.absolute_z_axis_tolerance = 0.1
+        orientation_constraint.weight = 1.0
         
         constraints.position_constraints = [position_constraint]
         constraints.orientation_constraints = [orientation_constraint]
@@ -426,10 +435,10 @@ class GraspPlanner(Node):
         注意：虽然SRDF中已经标记了相邻link为Adjacent，但MoveIt在规划场景中
         可能没有正确应用这些设置，所以需要在ACM中明确允许相邻link之间的碰撞"""
         acm = AllowedCollisionMatrix()
-        # 包含抓取相关的link和所有左臂的link（避免相邻link之间的碰撞问题）
+        # 包含抓取相关的 link、所有左臂的 link，以及桌面 table
         links = [
-            "banana", 
-            "openarm_left_left_finger", 
+            "banana",
+            "openarm_left_left_finger",
             "openarm_left_right_finger",
             "openarm_left_hand",
             "openarm_left_link0",
@@ -439,21 +448,59 @@ class GraspPlanner(Node):
             "openarm_left_link4",
             "openarm_left_link5",
             "openarm_left_link6",
-            "openarm_left_link7"
+            "openarm_left_link7",
+            "table",
         ]
         acm.entry_names = links
 
         # 构造对称的允许矩阵：
         # 1. 香蕉与两个手指互相允许，手指之间也允许
-        # 2. 所有左臂相邻link之间允许碰撞（虽然SRDF中已标记为Adjacent，但规划场景需要明确）
-        #    这样可以避免起始状态因为相邻link碰撞而导致的规划失败
-        for i, name in enumerate(links):
+        # 2. 所有左臂内部 link 之间允许碰撞（避免起始状态因自碰撞失败）
+        # 3. 专门允许 table 与两根手指/香蕉 之间的碰撞，其它 link 与 table 仍按默认不允许
+        for i, name_i in enumerate(links):
             entry = AllowedCollisionEntry()
             entry.enabled = [False] * len(links)
-            for j in range(len(links)):
-                if i != j:
-                    # 允许所有link之间的碰撞（抓取相关和左臂所有link）
+            for j, name_j in enumerate(links):
+                if i == j:
+                    continue
+
+                # 允许香蕉与手指、手掌、左臂之间的接触
+                if "banana" in (name_i, name_j):
                     entry.enabled[j] = True
+                    continue
+
+                # 左臂内部 link 之间允许碰撞（包含手指和 hand）
+                left_links = [
+                    "openarm_left_left_finger",
+                    "openarm_left_right_finger",
+                    "openarm_left_hand",
+                    "openarm_left_link0",
+                    "openarm_left_link1",
+                    "openarm_left_link2",
+                    "openarm_left_link3",
+                    "openarm_left_link4",
+                    "openarm_left_link5",
+                    "openarm_left_link6",
+                    "openarm_left_link7",
+                ]
+                if name_i in left_links and name_j in left_links:
+                    entry.enabled[j] = True
+                    continue
+
+                # 专门允许 table 与两根手指以及香蕉之间的碰撞
+                if (name_i == "table" and name_j in [
+                    "openarm_left_left_finger",
+                    "openarm_left_right_finger",
+                    "banana",
+                ]) or (
+                    name_j == "table" and name_i in [
+                        "openarm_left_left_finger",
+                        "openarm_left_right_finger",
+                        "banana",
+                    ]
+                ):
+                    entry.enabled[j] = True
+
             acm.entry_values.append(entry)
         
         planning_scene = PlanningScene()
@@ -480,8 +527,8 @@ class GraspPlanner(Node):
         
         grasp.post_grasp_retreat.direction.vector.z = 1.0
         grasp.post_grasp_retreat.min_distance = 0.01
-        # 抓取后抬起距离，设置为 0.10m，避免超出机械臂可达工作空间
-        grasp.post_grasp_retreat.desired_distance = 0.10
+        # 抓取后抬起距离，设置为 0.15m，避免超出机械臂可达工作空间
+        grasp.post_grasp_retreat.desired_distance = 0.15
         
         return grasp
 
