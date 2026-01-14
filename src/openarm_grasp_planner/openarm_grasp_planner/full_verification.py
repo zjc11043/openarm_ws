@@ -111,6 +111,11 @@ class FullVerificationSystem(Node):
             # 给机械臂一些时间完成抬起动作
             time.sleep(5)
             
+            # 步骤6: 打开夹手放下香蕉
+            self.get_logger().info('步骤6: 打开夹手放下香蕉')
+            self.control_gripper(False)  # False表示打开夹爪
+            time.sleep(2)
+            
             self.get_logger().info('=== 全流程抓取验证完成 ===')
             return True
             

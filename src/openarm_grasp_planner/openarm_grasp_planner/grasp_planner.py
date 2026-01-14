@@ -196,7 +196,7 @@ class GraspPlanner(Node):
         # 并限制在 [0.05, 0.20] 之间，避免抬起距离过大导致规划失败
         lift_distance = self.last_grasp.post_grasp_retreat.desired_distance
         if lift_distance <= 0.0:
-            lift_distance = 0.10
+            lift_distance = 0.15
         lift_distance = max(0.05, min(lift_distance, 0.20))
 
         self.get_logger().info(
@@ -251,7 +251,10 @@ class GraspPlanner(Node):
         goal_msg.request.planner_id = ""
         goal_msg.planning_options.plan_only = True
         goal_msg.planning_options.replan = True
-        goal_msg.planning_options.replan_attempts = 10
+        goal_msg.planning_options.replan_attempts = 5
+        # 设置更高的速度缩放因子，加快机械臂运动速度
+        goal_msg.request.max_velocity_scaling_factor = 1.0
+        goal_msg.request.max_acceleration_scaling_factor = 1.0
 
         # 允许夹爪与香蕉接触（规划阶段允许接触，避免碰撞拒绝）
         # 同时允许相邻link之间的碰撞，避免起始状态碰撞问题
@@ -304,7 +307,10 @@ class GraspPlanner(Node):
         goal_msg.request.planner_id = ""
         goal_msg.planning_options.plan_only = True
         goal_msg.planning_options.replan = True
-        goal_msg.planning_options.replan_attempts = 10
+        goal_msg.planning_options.replan_attempts = 5
+        # 设置更高的速度缩放因子，加快机械臂运动速度
+        goal_msg.request.max_velocity_scaling_factor = 1.0
+        goal_msg.request.max_acceleration_scaling_factor = 1.0
 
         # 同样允许抓取相关接触
         goal_msg.planning_options.planning_scene_diff = self.build_acm_for_grasp()

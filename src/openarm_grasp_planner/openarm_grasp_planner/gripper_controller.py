@@ -10,12 +10,13 @@ class GripperController(Node):
         super().__init__('gripper_controller_node')
         
         # 夹爪状态参数（根据 SRDF 定义：0.0=闭合，0.060=更大打开）
-        # 注意：位置值表示手指分开的距离，0.0 表示完全闭合，0.060 表示完全打开
-        self.gripper_open_position = 0.060   # 夹爪打开位置（手指分开）
-        # 稳定防滑模式：适当减小闭合距离，但不过度压入，避免弹飞
-        # 香蕉碰撞胶囊半径为 0.02，这里设置略大于 0.02，主要依靠高摩擦防滑
-        self.gripper_closed_position = 0.03  # 稍紧的闭合目标位置，兼顾防滑与稳定
-        self.gripper_max_effort = 70.0  # 适中最大抓取力，减小接触瞬间冲击
+        # 注意：位置值表示手指分开的距离，0.0 表示闭合，0.060 表示完全打开
+        self.gripper_open_position = 0.060  # 夹爪打开位置（手指分开）
+        self.gripper_closed_position = 0.0  # 夹爪完全闭合位置（手指靠拢）
+        # 夹爪抓取位置：不完全关闭，只关闭到能夹住香蕉的程度（约0.02-0.03米）
+        # 香蕉直径约为0.04米，所以关闭到0.03米可以夹住香蕉
+        self.gripper_grasp_position = 0.03  # 夹爪抓取位置（能夹住香蕉但不完全关闭）
+        self.gripper_max_effort = 100.0  # 最大抓取力（增加以更好地夹住香蕉）
         
         # 创建Action客户端用于控制夹爪（双机械臂版本）
         self.left_gripper_client = ActionClient(
@@ -100,11 +101,11 @@ class GripperController(Node):
         
         if left_result:
             response.success = True
-            response.message = f'左夹爪已{"闭合" if request.data else "打开"}'
+            response.message = f'左夹爪已{action}'
             self.get_logger().info(response.message)
         else:
             response.success = False
-            response.message = f'左夹爪{"闭合" if request.data else "打开"}失败'
+            response.message = f'左夹爪{action}失败'
             self.get_logger().error(response.message)
         
         return response

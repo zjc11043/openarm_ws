@@ -35,6 +35,10 @@ class BananaDetector(Node):
         self.lower_yellow = np.array([20, 100, 100])
         self.upper_yellow = np.array([35, 255, 255])
 
+        # 位置变化检测：记录上次发布的位置，只有位置变化超过阈值才发布
+        self.last_published_position = None
+        self.position_change_threshold = 0.01  # 位置变化阈值（米），超过此值才发布新位置
+
         self.get_logger().info('Banana Detector: Started (Clean TF Mode)')
 
     def depth_callback(self, msg):
@@ -114,21 +118,40 @@ class BananaDetector(Node):
                     # 把目标从香蕉几何中心下移到更接近底部的位置
                     pt_base.z -= self.banana_z_offset
 
-                    # 5. 输出结果 (直接使用，不加负号，不减高度)
-                    self.get_logger().info(
-                        f' Result: X={pt_base.x:.3f}, Y={pt_base.y:.3f}, Z={pt_base.z:.3f}'
-                    )
+                    # 5. 检查位置是否发生显著变化
+                    should_publish = False
+                    if self.last_published_position is None:
+                        # 首次检测到，直接发布
+                        should_publish = True
+                    else:
+                        # 计算位置变化距离
+                        dx = pt_base.x - self.last_published_position[0]
+                        dy = pt_base.y - self.last_published_position[1]
+                        dz = pt_base.z - self.last_published_position[2]
+                        distance = np.sqrt(dx*dx + dy*dy + dz*dz)
+                        
+                        if distance > self.position_change_threshold:
+                            should_publish = True
+                    
+                    if should_publish:
+                        # 更新记录的位置
+                        self.last_published_position = [pt_base.x, pt_base.y, pt_base.z]
+                        
+                        # 输出结果 (直接使用，不加负号，不减高度)
+                        self.get_logger().info(
+                            f' Result: X={pt_base.x:.3f}, Y={pt_base.y:.3f}, Z={pt_base.z:.3f}'
+                        )
 
-                    # 6. 发布坐标用于可视化
-                    t = TransformStamped()
-                    t.header.stamp = msg.header.stamp
-                    t.header.frame_id = 'openarm_body_link0'
-                    t.child_frame_id = 'banana_target'
-                    t.transform.translation.x = pt_base.x
-                    t.transform.translation.y = pt_base.y
-                    t.transform.translation.z = pt_base.z
-                    t.transform.rotation.w = 1.0
-                    self.tf_pub.sendTransform(t)
+                        # 6. 发布坐标用于可视化
+                        t = TransformStamped()
+                        t.header.stamp = msg.header.stamp
+                        t.header.frame_id = 'openarm_body_link0'
+                        t.child_frame_id = 'banana_target'
+                        t.transform.translation.x = pt_base.x
+                        t.transform.translation.y = pt_base.y
+                        t.transform.translation.z = pt_base.z
+                        t.transform.rotation.w = 1.0
+                        self.tf_pub.sendTransform(t)
 
                 except Exception as e:
                     pass
