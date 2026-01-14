@@ -20,6 +20,7 @@ from control_msgs.action import FollowJointTrajectory
 from rclpy.action import ActionClient
 from rclpy.callback_groups import ReentrantCallbackGroup
 from rclpy.executors import MultiThreadedExecutor
+from std_srvs.srv import Trigger
 import threading
 import time
 import copy
@@ -73,6 +74,17 @@ class GraspPlanner(Node):
             10,
             callback_group=self.callback_group
         )
+
+        # 记录最近一次抓取姿态，供抓取后抬起使用
+        self.last_grasp = None
+
+        # 抓取后抬起机械臂的服务
+        self.lift_service = self.create_service(
+            Trigger,
+            'lift_after_grasp',
+            self.lift_after_grasp_callback,
+            callback_group=self.callback_group,
+        )
         
         self.get_logger().info('抓取规划模块已启动')
 
@@ -98,6 +110,8 @@ class GraspPlanner(Node):
         
         # 2. 生成抓取姿态
         grasp = self.generate_grasp_pose(target_pose)
+        # 缓存本次抓取姿态，后续抬起会基于此姿态的 retreat 距离
+        self.last_grasp = grasp
         
         # 3. 异步调用 MoveIt 规划
         self.get_logger().info('开始异步 MoveIt 规划...')
@@ -110,7 +124,7 @@ class GraspPlanner(Node):
         future = self.plan_grasp_trajectory_async(grasp)
         
         # 等待规划完成（设置合理的超时时间）
-        if not self.moveit_result_event.wait(timeout=60.0):
+        if not self.moveit_result_event.wait(timeout=600.0):
             self.get_logger().error('MoveIt 规划超时')
             from moveit_msgs.msg import MoveItErrorCodes
             response.error_code.val = MoveItErrorCodes.TIMED_OUT
@@ -138,6 +152,60 @@ class GraspPlanner(Node):
         
         return response
 
+    def lift_after_grasp_callback(self, request, response):
+        """抓取完成后抬起机械臂的服务回调。
+
+        使用最近一次抓取规划生成的 grasp 配置中的 post_grasp_retreat 距离，
+        沿 openarm_body_link0 坐标系的 +Z 方向抬起机械臂。
+        """
+        if self.last_grasp is None:
+            self.get_logger().error('尚未执行过抓取规划，无法抬起机械臂')
+            response.success = False
+            response.message = 'no previous grasp available'
+            return response
+
+        # 使用 post_grasp_retreat 中配置的期望抬起距离，
+        # 并限制在 [0.05, 0.20] 之间，避免抬起距离过大导致规划失败
+        lift_distance = self.last_grasp.post_grasp_retreat.desired_distance
+        if lift_distance <= 0.0:
+            lift_distance = 0.10
+        lift_distance = max(0.05, min(lift_distance, 0.20))
+
+        self.get_logger().info(
+            f'收到抓取后抬起请求，将沿 +Z 抬起 {lift_distance:.3f} m'
+        )
+
+        # 重置事件并异步规划抬起轨迹
+        self.moveit_result_event.clear()
+        self.moveit_result = None
+
+        self.plan_lift_trajectory_async(self.last_grasp, lift_distance)
+
+        # 等待规划完成
+        if not self.moveit_result_event.wait(timeout=600.0):
+            self.get_logger().error('抬起轨迹规划超时')
+            response.success = False
+            response.message = 'lift planning timeout'
+            return response
+
+        if self.moveit_result is None:
+            self.get_logger().error('抬起轨迹规划失败，结果为空')
+            response.success = False
+            response.message = 'lift planning failed'
+            return response
+
+        # 执行抬起轨迹
+        if self.execute_trajectory(self.moveit_result):
+            self.get_logger().info('抬起轨迹执行成功')
+            response.success = True
+            response.message = 'lift executed successfully'
+        else:
+            self.get_logger().error('抬起轨迹执行失败')
+            response.success = False
+            response.message = 'lift execution failed'
+
+        return response
+
     def plan_grasp_trajectory_async(self, grasp_pose):
         """异步规划抓取轨迹"""
         # 创建 MoveIt Action Goal
@@ -153,15 +221,18 @@ class GraspPlanner(Node):
         goal_msg.planning_options.replan = True
         goal_msg.planning_options.replan_attempts = 5
 
-        # 显式设置起始状态，使用最新的 joint_states，避免 MoveIt 报空 JointState
-        start_state = self.get_current_start_state()
-        if start_state is not None:
-            goal_msg.request.start_state = start_state
-        else:
-            self.get_logger().warn('未获取到 joint_states，使用 MoveIt 默认起始状态（可能导致路径异常）')
-
         # 允许夹爪与香蕉接触（规划阶段允许接触，避免碰撞拒绝）
+        # 同时允许相邻link之间的碰撞，避免起始状态碰撞问题
         goal_msg.planning_options.planning_scene_diff = self.build_acm_for_grasp()
+        
+        # 不强制设置起始状态，让MoveIt使用其默认的起始状态处理机制
+        # 这样可以避免因为当前关节状态导致的碰撞问题
+        # MoveIt会自动从规划场景中获取当前状态，并尝试修复碰撞
+        # start_state = self.get_current_start_state()
+        # if start_state is not None:
+        #     goal_msg.request.start_state = start_state
+        # else:
+        #     self.get_logger().warn('未获取到 joint_states，使用 MoveIt 默认起始状态（可能导致路径异常）')
         
         # 创建约束
         constraints = self.create_grasp_constraints(grasp_pose)
@@ -178,6 +249,44 @@ class GraspPlanner(Node):
         # 设置结果回调
         send_goal_future.add_done_callback(self.moveit_goal_response_callback)
         
+        return send_goal_future
+
+    def plan_lift_trajectory_async(self, grasp_pose, lift_distance: float):
+        """异步规划抓取后的抬起轨迹。
+
+        在原抓取姿态的基础上，将目标位姿在 +Z 方向平移 lift_distance，
+        并使用与抓取相同的约束配置重新调用 MoveIt 规划。
+        """
+        # 基于当前 grasp 复制一个抬起后的 grasp，用于生成约束
+        lifted_grasp = copy.deepcopy(grasp_pose)
+        lifted_grasp.grasp_pose.pose.position.z += lift_distance
+
+        goal_msg = MoveGroup.Goal()
+
+        # 与抓取规划保持一致的规划参数
+        goal_msg.request.group_name = "left_arm"
+        goal_msg.request.num_planning_attempts = 10
+        goal_msg.request.allowed_planning_time = 10.0
+        goal_msg.request.planner_id = ""
+        goal_msg.planning_options.plan_only = True
+        goal_msg.planning_options.replan = True
+        goal_msg.planning_options.replan_attempts = 5
+
+        # 同样允许抓取相关接触
+        goal_msg.planning_options.planning_scene_diff = self.build_acm_for_grasp()
+
+        # 使用抬起后的姿态创建约束
+        constraints = self.create_grasp_constraints(lifted_grasp)
+        goal_msg.request.goal_constraints = [constraints]
+
+        self.get_logger().info('发送抬起 MoveIt Action Goal...')
+
+        send_goal_future = self.moveit_action_client.send_goal_async(
+            goal_msg,
+            feedback_callback=self.moveit_feedback_callback,
+        )
+        send_goal_future.add_done_callback(self.moveit_goal_response_callback)
+
         return send_goal_future
 
     def moveit_goal_response_callback(self, future):
@@ -282,19 +391,42 @@ class GraspPlanner(Node):
         return constraints
 
     def build_acm_for_grasp(self):
-        """构造允许夹爪与抓取物体接触的 ACM，避免规划阶段因接触判定失败"""
+        """构造允许夹爪与抓取物体接触的 ACM，避免规划阶段因接触判定失败
+        同时允许相邻link之间的碰撞，避免起始状态碰撞问题
+        
+        注意：虽然SRDF中已经标记了相邻link为Adjacent，但MoveIt在规划场景中
+        可能没有正确应用这些设置，所以需要在ACM中明确允许相邻link之间的碰撞"""
         acm = AllowedCollisionMatrix()
-        links = ["banana", "openarm_left_left_finger", "openarm_left_right_finger"]
+        # 包含抓取相关的link和所有左臂的link（避免相邻link之间的碰撞问题）
+        links = [
+            "banana", 
+            "openarm_left_left_finger", 
+            "openarm_left_right_finger",
+            "openarm_left_hand",
+            "openarm_left_link0",
+            "openarm_left_link1",
+            "openarm_left_link2",
+            "openarm_left_link3",
+            "openarm_left_link4",
+            "openarm_left_link5",
+            "openarm_left_link6",
+            "openarm_left_link7"
+        ]
         acm.entry_names = links
 
-        # 构造对称的允许矩阵：香蕉与两个手指互相允许，手指之间也允许
+        # 构造对称的允许矩阵：
+        # 1. 香蕉与两个手指互相允许，手指之间也允许
+        # 2. 所有左臂相邻link之间允许碰撞（虽然SRDF中已标记为Adjacent，但规划场景需要明确）
+        #    这样可以避免起始状态因为相邻link碰撞而导致的规划失败
         for i, name in enumerate(links):
             entry = AllowedCollisionEntry()
             entry.enabled = [False] * len(links)
             for j in range(len(links)):
                 if i != j:
+                    # 允许所有link之间的碰撞（抓取相关和左臂所有link）
                     entry.enabled[j] = True
             acm.entry_values.append(entry)
+        
         planning_scene = PlanningScene()
         planning_scene.allowed_collision_matrix = acm
         return planning_scene
@@ -319,7 +451,8 @@ class GraspPlanner(Node):
         
         grasp.post_grasp_retreat.direction.vector.z = 1.0
         grasp.post_grasp_retreat.min_distance = 0.01
-        grasp.post_grasp_retreat.desired_distance = 0.05
+        # 抓取后抬起距离，设置为 0.10m，避免超出机械臂可达工作空间
+        grasp.post_grasp_retreat.desired_distance = 0.10
         
         return grasp
 
@@ -384,7 +517,7 @@ class GraspPlanner(Node):
         future.add_done_callback(execution_response_callback)
         
         # 等待执行完成（超时时间根据轨迹长度设置）
-        if execution_event.wait(timeout=60.0):
+        if execution_event.wait(timeout=600.0):
             return execution_result[0] is not None
         else:
             self.get_logger().error('轨迹执行超时')

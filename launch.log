@@ -1,160 +1,160 @@
-[INFO] [launch]: All log files can be found below /home/zjc/.ros/log/2026-01-14-01-36-37-766831-zjc-virtual-machine-117461
+[INFO] [launch]: All log files can be found below /home/zjc/.ros/log/2026-01-14-13-32-08-675657-zjc-virtual-machine-11709
 [INFO] [launch]: Default logging verbosity is set to INFO
-[INFO] [mujoco_ros2_control-1]: process started with pid [117471]
-[INFO] [robot_state_publisher-2]: process started with pid [117473]
-[INFO] [move_group-3]: process started with pid [117482]
-[INFO] [rviz2-4]: process started with pid [117491]
-[INFO] [openarm_bimanual_viewer-5]: process started with pid [117495]
-[mujoco_ros2_control-1] [INFO] [1768325799.055541886] [mujoco_ros2_control_node]: Initializing mujoco_ros2_control node...
+[INFO] [mujoco_ros2_control-1]: process started with pid [11727]
+[INFO] [robot_state_publisher-2]: process started with pid [11729]
+[INFO] [move_group-3]: process started with pid [11731]
+[INFO] [rviz2-4]: process started with pid [11733]
+[INFO] [openarm_bimanual_viewer-5]: process started with pid [11735]
 [rviz2-4] Warning: Ignoring XDG_SESSION_TYPE=wayland on Gnome. Use QT_QPA_PLATFORM=wayland to run on Wayland anyway.
-[robot_state_publisher-2] [INFO] [1768325799.076484864] [robot_state_publisher]: got segment banana
-[robot_state_publisher-2] [INFO] [1768325799.076626637] [robot_state_publisher]: got segment d435_link
-[robot_state_publisher-2] [INFO] [1768325799.076633781] [robot_state_publisher]: got segment d435_optical_frame
-[robot_state_publisher-2] [INFO] [1768325799.076636842] [robot_state_publisher]: got segment openarm_body_link0
-[robot_state_publisher-2] [INFO] [1768325799.076639568] [robot_state_publisher]: got segment openarm_left_hand
-[robot_state_publisher-2] [INFO] [1768325799.076642138] [robot_state_publisher]: got segment openarm_left_hand_tcp
-[robot_state_publisher-2] [INFO] [1768325799.076644949] [robot_state_publisher]: got segment openarm_left_left_finger
-[robot_state_publisher-2] [INFO] [1768325799.076647395] [robot_state_publisher]: got segment openarm_left_link0
-[robot_state_publisher-2] [INFO] [1768325799.076689071] [robot_state_publisher]: got segment openarm_left_link1
-[robot_state_publisher-2] [INFO] [1768325799.076692497] [robot_state_publisher]: got segment openarm_left_link2
-[robot_state_publisher-2] [INFO] [1768325799.076694840] [robot_state_publisher]: got segment openarm_left_link3
-[robot_state_publisher-2] [INFO] [1768325799.076697234] [robot_state_publisher]: got segment openarm_left_link4
-[robot_state_publisher-2] [INFO] [1768325799.076699619] [robot_state_publisher]: got segment openarm_left_link5
-[robot_state_publisher-2] [INFO] [1768325799.076701934] [robot_state_publisher]: got segment openarm_left_link6
-[robot_state_publisher-2] [INFO] [1768325799.076704225] [robot_state_publisher]: got segment openarm_left_link7
-[robot_state_publisher-2] [INFO] [1768325799.076706589] [robot_state_publisher]: got segment openarm_left_right_finger
-[robot_state_publisher-2] [INFO] [1768325799.076709030] [robot_state_publisher]: got segment openarm_right_hand
-[robot_state_publisher-2] [INFO] [1768325799.076711306] [robot_state_publisher]: got segment openarm_right_hand_tcp
-[robot_state_publisher-2] [INFO] [1768325799.076713808] [robot_state_publisher]: got segment openarm_right_left_finger
-[robot_state_publisher-2] [INFO] [1768325799.076716276] [robot_state_publisher]: got segment openarm_right_link0
-[robot_state_publisher-2] [INFO] [1768325799.076719028] [robot_state_publisher]: got segment openarm_right_link1
-[robot_state_publisher-2] [INFO] [1768325799.076721419] [robot_state_publisher]: got segment openarm_right_link2
-[robot_state_publisher-2] [INFO] [1768325799.076723766] [robot_state_publisher]: got segment openarm_right_link3
-[robot_state_publisher-2] [INFO] [1768325799.076726085] [robot_state_publisher]: got segment openarm_right_link4
-[robot_state_publisher-2] [INFO] [1768325799.076728398] [robot_state_publisher]: got segment openarm_right_link5
-[robot_state_publisher-2] [INFO] [1768325799.076730644] [robot_state_publisher]: got segment openarm_right_link6
-[robot_state_publisher-2] [INFO] [1768325799.076732968] [robot_state_publisher]: got segment openarm_right_link7
-[robot_state_publisher-2] [INFO] [1768325799.076735258] [robot_state_publisher]: got segment openarm_right_right_finger
-[robot_state_publisher-2] [INFO] [1768325799.076737701] [robot_state_publisher]: got segment table
-[robot_state_publisher-2] [INFO] [1768325799.076740111] [robot_state_publisher]: got segment world
-[move_group-3] [INFO] [1768325799.098043087] [moveit_rdf_loader.rdf_loader]: Loaded robot model in 0.021249 seconds
-[move_group-3] [INFO] [1768325799.098103554] [moveit_robot_model.robot_model]: Loading robot model 'openarm'...
-[move_group-3] [INFO] [1768325799.098108464] [moveit_robot_model.robot_model]: No root/virtual joint specified in SRDF. Assuming fixed joint
-[move_group-3] [WARN] [1768325799.183996635] [moveit_robot_model.robot_model]: Could not identify parent group for end-effector 'left_ee'
-[move_group-3] [WARN] [1768325799.184064301] [moveit_robot_model.robot_model]: Could not identify parent group for end-effector 'right_ee'
-[rviz2-4] [INFO] [1768325799.266377624] [rviz2]: Stereo is NOT SUPPORTED
-[rviz2-4] [INFO] [1768325799.266480299] [rviz2]: OpenGl version: 4.5 (GLSL 4.5)
-[rviz2-4] [INFO] [1768325799.303598777] [rviz2]: Stereo is NOT SUPPORTED
+[mujoco_ros2_control-1] [INFO] [1768368729.931058994] [mujoco_ros2_control_node]: Initializing mujoco_ros2_control node...
+[robot_state_publisher-2] [INFO] [1768368729.962219716] [robot_state_publisher]: got segment banana
+[robot_state_publisher-2] [INFO] [1768368729.962357101] [robot_state_publisher]: got segment d435_link
+[robot_state_publisher-2] [INFO] [1768368729.962362587] [robot_state_publisher]: got segment d435_optical_frame
+[robot_state_publisher-2] [INFO] [1768368729.962365606] [robot_state_publisher]: got segment openarm_body_link0
+[robot_state_publisher-2] [INFO] [1768368729.962368076] [robot_state_publisher]: got segment openarm_left_hand
+[robot_state_publisher-2] [INFO] [1768368729.962370439] [robot_state_publisher]: got segment openarm_left_hand_tcp
+[robot_state_publisher-2] [INFO] [1768368729.962372946] [robot_state_publisher]: got segment openarm_left_left_finger
+[robot_state_publisher-2] [INFO] [1768368729.962375293] [robot_state_publisher]: got segment openarm_left_link0
+[robot_state_publisher-2] [INFO] [1768368729.962377744] [robot_state_publisher]: got segment openarm_left_link1
+[robot_state_publisher-2] [INFO] [1768368729.962380045] [robot_state_publisher]: got segment openarm_left_link2
+[robot_state_publisher-2] [INFO] [1768368729.962382320] [robot_state_publisher]: got segment openarm_left_link3
+[robot_state_publisher-2] [INFO] [1768368729.962384577] [robot_state_publisher]: got segment openarm_left_link4
+[robot_state_publisher-2] [INFO] [1768368729.962386885] [robot_state_publisher]: got segment openarm_left_link5
+[robot_state_publisher-2] [INFO] [1768368729.962389095] [robot_state_publisher]: got segment openarm_left_link6
+[robot_state_publisher-2] [INFO] [1768368729.962391272] [robot_state_publisher]: got segment openarm_left_link7
+[robot_state_publisher-2] [INFO] [1768368729.962396684] [robot_state_publisher]: got segment openarm_left_right_finger
+[robot_state_publisher-2] [INFO] [1768368729.962399050] [robot_state_publisher]: got segment openarm_right_hand
+[robot_state_publisher-2] [INFO] [1768368729.962401212] [robot_state_publisher]: got segment openarm_right_hand_tcp
+[robot_state_publisher-2] [INFO] [1768368729.962403552] [robot_state_publisher]: got segment openarm_right_left_finger
+[robot_state_publisher-2] [INFO] [1768368729.962446708] [robot_state_publisher]: got segment openarm_right_link0
+[robot_state_publisher-2] [INFO] [1768368729.962449542] [robot_state_publisher]: got segment openarm_right_link1
+[robot_state_publisher-2] [INFO] [1768368729.962452007] [robot_state_publisher]: got segment openarm_right_link2
+[robot_state_publisher-2] [INFO] [1768368729.962454321] [robot_state_publisher]: got segment openarm_right_link3
+[robot_state_publisher-2] [INFO] [1768368729.962456689] [robot_state_publisher]: got segment openarm_right_link4
+[robot_state_publisher-2] [INFO] [1768368729.962458963] [robot_state_publisher]: got segment openarm_right_link5
+[robot_state_publisher-2] [INFO] [1768368729.962461232] [robot_state_publisher]: got segment openarm_right_link6
+[robot_state_publisher-2] [INFO] [1768368729.962463537] [robot_state_publisher]: got segment openarm_right_link7
+[robot_state_publisher-2] [INFO] [1768368729.962465841] [robot_state_publisher]: got segment openarm_right_right_finger
+[robot_state_publisher-2] [INFO] [1768368729.962468330] [robot_state_publisher]: got segment table
+[robot_state_publisher-2] [INFO] [1768368729.962470704] [robot_state_publisher]: got segment world
+[move_group-3] [INFO] [1768368729.985438576] [moveit_rdf_loader.rdf_loader]: Loaded robot model in 0.0244778 seconds
+[move_group-3] [INFO] [1768368729.985496196] [moveit_robot_model.robot_model]: Loading robot model 'openarm'...
+[move_group-3] [INFO] [1768368729.985501191] [moveit_robot_model.robot_model]: No root/virtual joint specified in SRDF. Assuming fixed joint
+[move_group-3] [WARN] [1768368730.070347017] [moveit_robot_model.robot_model]: Could not identify parent group for end-effector 'left_ee'
+[move_group-3] [WARN] [1768368730.070401797] [moveit_robot_model.robot_model]: Could not identify parent group for end-effector 'right_ee'
+[rviz2-4] [INFO] [1768368730.171404011] [rviz2]: Stereo is NOT SUPPORTED
+[rviz2-4] [INFO] [1768368730.171494635] [rviz2]: OpenGl version: 3.3 (GLSL 3.3)
+[rviz2-4] [INFO] [1768368730.188286766] [rviz2]: Stereo is NOT SUPPORTED
 [rviz2-4] Warning: class_loader.impl: SEVERE WARNING!!! A namespace collision has occurred with plugin factory for class rviz_default_plugins::displays::InteractiveMarkerDisplay. New factory will OVERWRITE existing one. This situation occurs when libraries containing plugins are directly linked against an executable (the one running right now generating this message). Please separate plugins out into their own library or just don't link against the library and use either class_loader::ClassLoader/MultiLibraryClassLoader to open.
 [rviz2-4]          at line 253 in /opt/ros/humble/include/class_loader/class_loader/class_loader_core.hpp
-[mujoco_ros2_control-1] [INFO] [1768325799.396786757] [mujoco_ros2_control_node]: Mujoco model has been successfully loaded !
-[move_group-3] [INFO] [1768325799.424382026] [moveit_ros.planning_scene_monitor.planning_scene_monitor]: Publishing maintained planning scene on 'monitored_planning_scene'
-[move_group-3] [INFO] [1768325799.424527181] [moveit.ros_planning_interface.moveit_cpp]: Listening to 'joint_states' for joint states
-[move_group-3] [INFO] [1768325799.425014696] [moveit_ros.current_state_monitor]: Listening to joint states on topic 'joint_states'
-[move_group-3] [INFO] [1768325799.425253423] [moveit_ros.planning_scene_monitor.planning_scene_monitor]: Listening to '/attached_collision_object' for attached collision objects
-[move_group-3] [INFO] [1768325799.425263123] [moveit_ros.planning_scene_monitor.planning_scene_monitor]: Starting planning scene monitor
-[move_group-3] [INFO] [1768325799.425453110] [moveit_ros.planning_scene_monitor.planning_scene_monitor]: Listening to '/planning_scene'
-[move_group-3] [INFO] [1768325799.425460883] [moveit_ros.planning_scene_monitor.planning_scene_monitor]: Starting world geometry update monitor for collision objects, attached objects, octomap updates.
-[move_group-3] [INFO] [1768325799.425652839] [moveit_ros.planning_scene_monitor.planning_scene_monitor]: Listening to 'collision_object'
-[move_group-3] [INFO] [1768325799.425857122] [moveit_ros.planning_scene_monitor.planning_scene_monitor]: Listening to 'planning_scene_world' for planning scene world geometry
-[move_group-3] [WARN] [1768325799.425963869] [moveit.ros.occupancy_map_monitor.middleware_handle]: Resolution not specified for Octomap. Assuming resolution = 0.1 instead
-[move_group-3] [ERROR] [1768325799.426015256] [moveit.ros.occupancy_map_monitor.middleware_handle]: Exception while loading octomap updater 'occupancy_map_monitor/DepthImageOctomapUpdater': According to the loaded plugin descriptions the class occupancy_map_monitor/DepthImageOctomapUpdater with base class type occupancy_map_monitor::OccupancyMapUpdater does not exist. Declared types are 
+[mujoco_ros2_control-1] [INFO] [1768368730.279628277] [mujoco_ros2_control_node]: Mujoco model has been successfully loaded !
+[mujoco_ros2_control-1] [INFO] [1768368730.307901993] [resource_manager]: Initialize hardware 'openarm_left_hardware_interface' 
+[mujoco_ros2_control-1] [INFO] [1768368730.308114546] [resource_manager]: Successful initialization of hardware 'openarm_left_hardware_interface'
+[mujoco_ros2_control-1] [INFO] [1768368730.308162576] [resource_manager]: 'configure' hardware 'openarm_left_hardware_interface' 
+[mujoco_ros2_control-1] [INFO] [1768368730.308167807] [resource_manager]: Successful 'configure' of hardware 'openarm_left_hardware_interface'
+[mujoco_ros2_control-1] [INFO] [1768368730.308189383] [resource_manager]: 'activate' hardware 'openarm_left_hardware_interface' 
+[mujoco_ros2_control-1] [INFO] [1768368730.308192525] [resource_manager]: Successful 'activate' of hardware 'openarm_left_hardware_interface'
+[move_group-3] [INFO] [1768368730.309729538] [moveit_ros.planning_scene_monitor.planning_scene_monitor]: Publishing maintained planning scene on 'monitored_planning_scene'
+[move_group-3] [INFO] [1768368730.309876721] [moveit.ros_planning_interface.moveit_cpp]: Listening to 'joint_states' for joint states
+[move_group-3] [INFO] [1768368730.310293088] [moveit_ros.current_state_monitor]: Listening to joint states on topic 'joint_states'
+[move_group-3] [INFO] [1768368730.310513810] [moveit_ros.planning_scene_monitor.planning_scene_monitor]: Listening to '/attached_collision_object' for attached collision objects
+[move_group-3] [INFO] [1768368730.310524826] [moveit_ros.planning_scene_monitor.planning_scene_monitor]: Starting planning scene monitor
+[move_group-3] [INFO] [1768368730.310656147] [moveit_ros.planning_scene_monitor.planning_scene_monitor]: Listening to '/planning_scene'
+[move_group-3] [INFO] [1768368730.310664448] [moveit_ros.planning_scene_monitor.planning_scene_monitor]: Starting world geometry update monitor for collision objects, attached objects, octomap updates.
+[move_group-3] [INFO] [1768368730.310779296] [moveit_ros.planning_scene_monitor.planning_scene_monitor]: Listening to 'collision_object'
+[move_group-3] [INFO] [1768368730.310922507] [moveit_ros.planning_scene_monitor.planning_scene_monitor]: Listening to 'planning_scene_world' for planning scene world geometry
+[move_group-3] [WARN] [1768368730.311026394] [moveit.ros.occupancy_map_monitor.middleware_handle]: Resolution not specified for Octomap. Assuming resolution = 0.1 instead
+[move_group-3] [ERROR] [1768368730.311074076] [moveit.ros.occupancy_map_monitor.middleware_handle]: Exception while loading octomap updater 'occupancy_map_monitor/DepthImageOctomapUpdater': According to the loaded plugin descriptions the class occupancy_map_monitor/DepthImageOctomapUpdater with base class type occupancy_map_monitor::OccupancyMapUpdater does not exist. Declared types are 
 [move_group-3] 
-[move_group-3] [ERROR] [1768325799.426023389] [moveit.ros.occupancy_map_monitor]: Failed to load sensor: `default_sensor` of type: `occupancy_map_monitor/DepthImageOctomapUpdater`
-[move_group-3] [ERROR] [1768325799.426029103] [moveit.ros.occupancy_map_monitor.middleware_handle]: Exception while loading octomap updater 'occupancy_map_monitor/DepthImageOctomapUpdater': According to the loaded plugin descriptions the class occupancy_map_monitor/DepthImageOctomapUpdater with base class type occupancy_map_monitor::OccupancyMapUpdater does not exist. Declared types are 
+[move_group-3] [ERROR] [1768368730.311082189] [moveit.ros.occupancy_map_monitor]: Failed to load sensor: `default_sensor` of type: `occupancy_map_monitor/DepthImageOctomapUpdater`
+[move_group-3] [ERROR] [1768368730.311088028] [moveit.ros.occupancy_map_monitor.middleware_handle]: Exception while loading octomap updater 'occupancy_map_monitor/DepthImageOctomapUpdater': According to the loaded plugin descriptions the class occupancy_map_monitor/DepthImageOctomapUpdater with base class type occupancy_map_monitor::OccupancyMapUpdater does not exist. Declared types are 
 [move_group-3] 
-[move_group-3] [ERROR] [1768325799.426031696] [moveit.ros.occupancy_map_monitor]: Failed to load sensor: `kinect_depthimage` of type: `occupancy_map_monitor/DepthImageOctomapUpdater`
-[mujoco_ros2_control-1] [INFO] [1768325799.428275707] [resource_manager]: Initialize hardware 'openarm_left_hardware_interface' 
-[mujoco_ros2_control-1] [INFO] [1768325799.428421652] [resource_manager]: Successful initialization of hardware 'openarm_left_hardware_interface'
-[mujoco_ros2_control-1] [INFO] [1768325799.428463185] [resource_manager]: 'configure' hardware 'openarm_left_hardware_interface' 
-[mujoco_ros2_control-1] [INFO] [1768325799.428468867] [resource_manager]: Successful 'configure' of hardware 'openarm_left_hardware_interface'
-[mujoco_ros2_control-1] [INFO] [1768325799.428477332] [resource_manager]: 'activate' hardware 'openarm_left_hardware_interface' 
-[mujoco_ros2_control-1] [INFO] [1768325799.428480409] [resource_manager]: Successful 'activate' of hardware 'openarm_left_hardware_interface'
-[mujoco_ros2_control-1] [INFO] [1768325799.448912354] [resource_manager]: Initialize hardware 'openarm_right_hardware_interface' 
-[mujoco_ros2_control-1] [INFO] [1768325799.449010986] [resource_manager]: Successful initialization of hardware 'openarm_right_hardware_interface'
-[mujoco_ros2_control-1] [INFO] [1768325799.449053412] [resource_manager]: 'configure' hardware 'openarm_right_hardware_interface' 
-[mujoco_ros2_control-1] [INFO] [1768325799.449057912] [resource_manager]: Successful 'configure' of hardware 'openarm_right_hardware_interface'
-[mujoco_ros2_control-1] [INFO] [1768325799.449066615] [resource_manager]: 'activate' hardware 'openarm_right_hardware_interface' 
-[mujoco_ros2_control-1] [INFO] [1768325799.449070680] [resource_manager]: Successful 'activate' of hardware 'openarm_right_hardware_interface'
-[mujoco_ros2_control-1] [INFO] [1768325799.449581916] [mujoco_ros2_control_node.mujoco_ros2_control]: Loading controller_manager
-[mujoco_ros2_control-1] [INFO] [1768325799.461792660] [mujoco_ros2_control_node]: Mujoco ros2 controller has been successfully initialized !
-[mujoco_ros2_control-1] [INFO] [1768325799.461832804] [mujoco_ros2_control_node]: Running MuJoCo in headless mode (no GUI rendering).
-[move_group-3] [INFO] [1768325799.596486950] [moveit.ros_planning_interface.moveit_cpp]: Loading planning pipeline 'chomp'
-[move_group-3] [INFO] [1768325799.598965521] [moveit.ros_planning.planning_pipeline]: Using planning interface 'CHOMP'
-[move_group-3] [INFO] [1768325799.600385269] [moveit_ros.add_time_optimal_parameterization]: Param 'chomp.path_tolerance' was not set. Using default value: 0.100000
-[move_group-3] [INFO] [1768325799.600548290] [moveit_ros.add_time_optimal_parameterization]: Param 'chomp.resample_dt' was not set. Using default value: 0.100000
-[move_group-3] [INFO] [1768325799.600554768] [moveit_ros.add_time_optimal_parameterization]: Param 'chomp.min_angle_change' was not set. Using default value: 0.001000
-[move_group-3] [INFO] [1768325799.600606621] [moveit_ros.fix_workspace_bounds]: Param 'chomp.default_workspace_bounds' was not set. Using default value: 10.000000
-[move_group-3] [INFO] [1768325799.600618546] [moveit_ros.fix_start_state_bounds]: Param 'chomp.start_state_max_bounds_error' was set to 0.100000
-[move_group-3] [INFO] [1768325799.600621679] [moveit_ros.fix_start_state_bounds]: Param 'chomp.start_state_max_dt' was not set. Using default value: 0.500000
-[move_group-3] [INFO] [1768325799.600685011] [moveit_ros.fix_start_state_collision]: Param 'chomp.start_state_max_dt' was not set. Using default value: 0.500000
-[move_group-3] [INFO] [1768325799.600689910] [moveit_ros.fix_start_state_collision]: Param 'chomp.jiggle_fraction' was set to 0.050000
-[move_group-3] [INFO] [1768325799.600693226] [moveit_ros.fix_start_state_collision]: Param 'chomp.max_sampling_attempts' was not set. Using default value: 100
-[move_group-3] [INFO] [1768325799.600699503] [moveit.ros_planning.planning_pipeline]: Using planning request adapter 'Add Time Optimal Parameterization'
-[move_group-3] [INFO] [1768325799.600701676] [moveit.ros_planning.planning_pipeline]: Using planning request adapter 'Resolve constraint frames to robot links'
-[move_group-3] [INFO] [1768325799.600703338] [moveit.ros_planning.planning_pipeline]: Using planning request adapter 'Fix Workspace Bounds'
-[move_group-3] [INFO] [1768325799.600705044] [moveit.ros_planning.planning_pipeline]: Using planning request adapter 'Fix Start State Bounds'
-[move_group-3] [INFO] [1768325799.600706642] [moveit.ros_planning.planning_pipeline]: Using planning request adapter 'Fix Start State In Collision'
-[move_group-3] [INFO] [1768325799.600708180] [moveit.ros_planning.planning_pipeline]: Using planning request adapter 'Fix Start State Path Constraints'
-[move_group-3] [INFO] [1768325799.603293503] [moveit.ros_planning_interface.moveit_cpp]: Loading planning pipeline 'pilz_industrial_motion_planner'
-[move_group-3] [INFO] [1768325799.604684763] [moveit.pilz_industrial_motion_planner.joint_limits_aggregator]: Reading limits from namespace robot_description_planning
-[move_group-3] [INFO] [1768325799.620455090] [moveit.pilz_industrial_motion_planner]: Available plugins: pilz_industrial_motion_planner/PlanningContextLoaderCIRC pilz_industrial_motion_planner/PlanningContextLoaderLIN pilz_industrial_motion_planner/PlanningContextLoaderPTP 
-[move_group-3] [INFO] [1768325799.620484539] [moveit.pilz_industrial_motion_planner]: About to load: pilz_industrial_motion_planner/PlanningContextLoaderCIRC
-[move_group-3] [INFO] [1768325799.621359596] [moveit.pilz_industrial_motion_planner]: Registered Algorithm [CIRC]
-[move_group-3] [INFO] [1768325799.621411934] [moveit.pilz_industrial_motion_planner]: About to load: pilz_industrial_motion_planner/PlanningContextLoaderLIN
-[move_group-3] [INFO] [1768325799.622114146] [moveit.pilz_industrial_motion_planner]: Registered Algorithm [LIN]
-[move_group-3] [INFO] [1768325799.622178346] [moveit.pilz_industrial_motion_planner]: About to load: pilz_industrial_motion_planner/PlanningContextLoaderPTP
-[openarm_bimanual_viewer-5] [INFO] [1768325799.622637550] [openarm_bimanual_viewer]: Loaded MuJoCo model from /home/zjc/openarm_ws/openarm_mujoco/v1/scene.xml
-[move_group-3] [INFO] [1768325799.622688763] [moveit.pilz_industrial_motion_planner]: Registered Algorithm [PTP]
-[move_group-3] [INFO] [1768325799.622700328] [moveit.ros_planning.planning_pipeline]: Using planning interface 'Pilz Industrial Motion Planner'
-[openarm_bimanual_viewer-5] [INFO] [1768325799.623051640] [openarm_bimanual_viewer]: Available MuJoCo joints:
-[openarm_bimanual_viewer-5] [INFO] [1768325799.623265548] [openarm_bimanual_viewer]:   openarm_left_joint1 -> qpos[0]
-[openarm_bimanual_viewer-5] [INFO] [1768325799.623431318] [openarm_bimanual_viewer]:   openarm_left_joint2 -> qpos[1]
-[openarm_bimanual_viewer-5] [INFO] [1768325799.623594933] [openarm_bimanual_viewer]:   openarm_left_joint3 -> qpos[2]
-[openarm_bimanual_viewer-5] [INFO] [1768325799.623754796] [openarm_bimanual_viewer]:   openarm_left_joint4 -> qpos[3]
-[move_group-3] [INFO] [1768325799.623793122] [moveit.ros_planning_interface.moveit_cpp]: Loading planning pipeline 'ompl'
-[openarm_bimanual_viewer-5] [INFO] [1768325799.623921840] [openarm_bimanual_viewer]:   openarm_left_joint5 -> qpos[4]
-[openarm_bimanual_viewer-5] [INFO] [1768325799.624072381] [openarm_bimanual_viewer]:   openarm_left_joint6 -> qpos[5]
-[openarm_bimanual_viewer-5] [INFO] [1768325799.624221116] [openarm_bimanual_viewer]:   openarm_left_joint7 -> qpos[6]
-[openarm_bimanual_viewer-5] [INFO] [1768325799.624369971] [openarm_bimanual_viewer]:   openarm_left_finger_joint1 -> qpos[7]
-[openarm_bimanual_viewer-5] [INFO] [1768325799.624526989] [openarm_bimanual_viewer]:   openarm_left_finger_joint2 -> qpos[8]
-[openarm_bimanual_viewer-5] [INFO] [1768325799.624682545] [openarm_bimanual_viewer]:   openarm_right_joint1 -> qpos[9]
-[openarm_bimanual_viewer-5] [INFO] [1768325799.624835294] [openarm_bimanual_viewer]:   openarm_right_joint2 -> qpos[10]
-[openarm_bimanual_viewer-5] [INFO] [1768325799.625039373] [openarm_bimanual_viewer]:   openarm_right_joint3 -> qpos[11]
-[openarm_bimanual_viewer-5] [INFO] [1768325799.625192785] [openarm_bimanual_viewer]:   openarm_right_joint4 -> qpos[12]
-[openarm_bimanual_viewer-5] [INFO] [1768325799.625342976] [openarm_bimanual_viewer]:   openarm_right_joint5 -> qpos[13]
-[openarm_bimanual_viewer-5] [INFO] [1768325799.625504803] [openarm_bimanual_viewer]:   openarm_right_joint6 -> qpos[14]
-[openarm_bimanual_viewer-5] [INFO] [1768325799.625761890] [openarm_bimanual_viewer]:   openarm_right_joint7 -> qpos[15]
-[openarm_bimanual_viewer-5] [INFO] [1768325799.626019312] [openarm_bimanual_viewer]:   openarm_right_finger_joint1 -> qpos[16]
-[openarm_bimanual_viewer-5] [INFO] [1768325799.626384754] [openarm_bimanual_viewer]:   openarm_right_finger_joint2 -> qpos[17]
-[openarm_bimanual_viewer-5] [INFO] [1768325799.626623046] [openarm_bimanual_viewer]:   banana_joint -> qpos[18]
-[move_group-3] [INFO] [1768325799.630415767] [moveit.ros_planning.planning_pipeline]: Using planning interface 'OMPL'
-[move_group-3] [INFO] [1768325799.631022374] [moveit_ros.add_time_optimal_parameterization]: Param 'ompl.path_tolerance' was not set. Using default value: 0.100000
-[move_group-3] [INFO] [1768325799.631055265] [moveit_ros.add_time_optimal_parameterization]: Param 'ompl.resample_dt' was not set. Using default value: 0.100000
-[move_group-3] [INFO] [1768325799.631106001] [moveit_ros.add_time_optimal_parameterization]: Param 'ompl.min_angle_change' was not set. Using default value: 0.001000
-[move_group-3] [INFO] [1768325799.631158545] [moveit_ros.fix_workspace_bounds]: Param 'ompl.default_workspace_bounds' was not set. Using default value: 10.000000
-[move_group-3] [INFO] [1768325799.631184130] [moveit_ros.fix_start_state_bounds]: Param 'ompl.start_state_max_bounds_error' was set to 0.100000
-[move_group-3] [INFO] [1768325799.631187867] [moveit_ros.fix_start_state_bounds]: Param 'ompl.start_state_max_dt' was not set. Using default value: 0.500000
-[move_group-3] [INFO] [1768325799.631195176] [moveit_ros.fix_start_state_collision]: Param 'ompl.start_state_max_dt' was not set. Using default value: 0.500000
-[move_group-3] [INFO] [1768325799.631198249] [moveit_ros.fix_start_state_collision]: Param 'ompl.jiggle_fraction' was set to 0.050000
-[move_group-3] [INFO] [1768325799.631200849] [moveit_ros.fix_start_state_collision]: Param 'ompl.max_sampling_attempts' was not set. Using default value: 100
-[move_group-3] [INFO] [1768325799.631220615] [moveit.ros_planning.planning_pipeline]: Using planning request adapter 'Add Time Optimal Parameterization'
-[move_group-3] [INFO] [1768325799.631223285] [moveit.ros_planning.planning_pipeline]: Using planning request adapter 'Resolve constraint frames to robot links'
-[move_group-3] [INFO] [1768325799.631225002] [moveit.ros_planning.planning_pipeline]: Using planning request adapter 'Fix Workspace Bounds'
-[move_group-3] [INFO] [1768325799.631288381] [moveit.ros_planning.planning_pipeline]: Using planning request adapter 'Fix Start State Bounds'
-[move_group-3] [INFO] [1768325799.631294630] [moveit.ros_planning.planning_pipeline]: Using planning request adapter 'Fix Start State In Collision'
-[move_group-3] [INFO] [1768325799.631296686] [moveit.ros_planning.planning_pipeline]: Using planning request adapter 'Fix Start State Path Constraints'
-[move_group-3] [INFO] [1768325799.678701433] [moveit.plugins.moveit_simple_controller_manager]: Added FollowJointTrajectory controller for left_joint_trajectory_controller
-[move_group-3] [INFO] [1768325799.680220358] [moveit.plugins.moveit_simple_controller_manager]: Added FollowJointTrajectory controller for right_joint_trajectory_controller
-[move_group-3] [INFO] [1768325799.680249435] [moveit.plugins.moveit_simple_controller_manager]: Max effort set to 0.0
-[move_group-3] [INFO] [1768325799.682068463] [moveit.plugins.moveit_simple_controller_manager]: Added GripperCommand controller for left_gripper_controller
-[move_group-3] [INFO] [1768325799.682088208] [moveit.plugins.moveit_simple_controller_manager]: Max effort set to 0.0
-[move_group-3] [INFO] [1768325799.683681556] [moveit.plugins.moveit_simple_controller_manager]: Added GripperCommand controller for right_gripper_controller
-[move_group-3] [INFO] [1768325799.683809212] [moveit.plugins.moveit_simple_controller_manager]: Returned 4 controllers in list
-[move_group-3] [INFO] [1768325799.683828795] [moveit.plugins.moveit_simple_controller_manager]: Returned 4 controllers in list
-[move_group-3] [INFO] [1768325799.684173389] [moveit_ros.trajectory_execution_manager]: Trajectory execution is managing controllers
-[move_group-3] [INFO] [1768325799.684194553] [move_group.move_group]: MoveGroup debug mode is ON
-[move_group-3] [INFO] [1768325799.697149421] [move_group.move_group]: 
+[move_group-3] [ERROR] [1768368730.311090653] [moveit.ros.occupancy_map_monitor]: Failed to load sensor: `kinect_depthimage` of type: `occupancy_map_monitor/DepthImageOctomapUpdater`
+[mujoco_ros2_control-1] [INFO] [1768368730.328575201] [resource_manager]: Initialize hardware 'openarm_right_hardware_interface' 
+[mujoco_ros2_control-1] [INFO] [1768368730.328673019] [resource_manager]: Successful initialization of hardware 'openarm_right_hardware_interface'
+[mujoco_ros2_control-1] [INFO] [1768368730.328705848] [resource_manager]: 'configure' hardware 'openarm_right_hardware_interface' 
+[mujoco_ros2_control-1] [INFO] [1768368730.328710887] [resource_manager]: Successful 'configure' of hardware 'openarm_right_hardware_interface'
+[mujoco_ros2_control-1] [INFO] [1768368730.328719160] [resource_manager]: 'activate' hardware 'openarm_right_hardware_interface' 
+[mujoco_ros2_control-1] [INFO] [1768368730.328722350] [resource_manager]: Successful 'activate' of hardware 'openarm_right_hardware_interface'
+[mujoco_ros2_control-1] [INFO] [1768368730.329219273] [mujoco_ros2_control_node.mujoco_ros2_control]: Loading controller_manager
+[mujoco_ros2_control-1] [INFO] [1768368730.338933719] [mujoco_ros2_control_node]: Mujoco ros2 controller has been successfully initialized !
+[mujoco_ros2_control-1] [INFO] [1768368730.338979731] [mujoco_ros2_control_node]: Running MuJoCo in headless mode (no GUI rendering).
+[openarm_bimanual_viewer-5] [INFO] [1768368730.476385450] [openarm_bimanual_viewer]: Loaded MuJoCo model from /home/zjc/openarm_ws/openarm_mujoco/v1/scene.xml
+[openarm_bimanual_viewer-5] [INFO] [1768368730.476731893] [openarm_bimanual_viewer]: Available MuJoCo joints:
+[openarm_bimanual_viewer-5] [INFO] [1768368730.476905645] [openarm_bimanual_viewer]:   openarm_left_joint1 -> qpos[0]
+[openarm_bimanual_viewer-5] [INFO] [1768368730.477097484] [openarm_bimanual_viewer]:   openarm_left_joint2 -> qpos[1]
+[openarm_bimanual_viewer-5] [INFO] [1768368730.477406240] [openarm_bimanual_viewer]:   openarm_left_joint3 -> qpos[2]
+[openarm_bimanual_viewer-5] [INFO] [1768368730.477596620] [openarm_bimanual_viewer]:   openarm_left_joint4 -> qpos[3]
+[openarm_bimanual_viewer-5] [INFO] [1768368730.477928665] [openarm_bimanual_viewer]:   openarm_left_joint5 -> qpos[4]
+[openarm_bimanual_viewer-5] [INFO] [1768368730.478244345] [openarm_bimanual_viewer]:   openarm_left_joint6 -> qpos[5]
+[openarm_bimanual_viewer-5] [INFO] [1768368730.478428907] [openarm_bimanual_viewer]:   openarm_left_joint7 -> qpos[6]
+[openarm_bimanual_viewer-5] [INFO] [1768368730.478853717] [openarm_bimanual_viewer]:   openarm_left_finger_joint1 -> qpos[7]
+[openarm_bimanual_viewer-5] [INFO] [1768368730.479069750] [openarm_bimanual_viewer]:   openarm_left_finger_joint2 -> qpos[8]
+[openarm_bimanual_viewer-5] [INFO] [1768368730.479379613] [openarm_bimanual_viewer]:   openarm_right_joint1 -> qpos[9]
+[openarm_bimanual_viewer-5] [INFO] [1768368730.479573388] [openarm_bimanual_viewer]:   openarm_right_joint2 -> qpos[10]
+[openarm_bimanual_viewer-5] [INFO] [1768368730.479940260] [openarm_bimanual_viewer]:   openarm_right_joint3 -> qpos[11]
+[openarm_bimanual_viewer-5] [INFO] [1768368730.480275071] [openarm_bimanual_viewer]:   openarm_right_joint4 -> qpos[12]
+[openarm_bimanual_viewer-5] [INFO] [1768368730.480593886] [openarm_bimanual_viewer]:   openarm_right_joint5 -> qpos[13]
+[openarm_bimanual_viewer-5] [INFO] [1768368730.480799774] [openarm_bimanual_viewer]:   openarm_right_joint6 -> qpos[14]
+[openarm_bimanual_viewer-5] [INFO] [1768368730.480953568] [openarm_bimanual_viewer]:   openarm_right_joint7 -> qpos[15]
+[openarm_bimanual_viewer-5] [INFO] [1768368730.481100435] [openarm_bimanual_viewer]:   openarm_right_finger_joint1 -> qpos[16]
+[move_group-3] [INFO] [1768368730.481177774] [moveit.ros_planning_interface.moveit_cpp]: Loading planning pipeline 'chomp'
+[openarm_bimanual_viewer-5] [INFO] [1768368730.481280363] [openarm_bimanual_viewer]:   openarm_right_finger_joint2 -> qpos[17]
+[openarm_bimanual_viewer-5] [INFO] [1768368730.481447487] [openarm_bimanual_viewer]:   banana_joint -> qpos[18]
+[move_group-3] [INFO] [1768368730.483108436] [moveit.ros_planning.planning_pipeline]: Using planning interface 'CHOMP'
+[move_group-3] [INFO] [1768368730.484389849] [moveit_ros.add_time_optimal_parameterization]: Param 'chomp.path_tolerance' was not set. Using default value: 0.100000
+[move_group-3] [INFO] [1768368730.484417012] [moveit_ros.add_time_optimal_parameterization]: Param 'chomp.resample_dt' was not set. Using default value: 0.100000
+[move_group-3] [INFO] [1768368730.484420512] [moveit_ros.add_time_optimal_parameterization]: Param 'chomp.min_angle_change' was not set. Using default value: 0.001000
+[move_group-3] [INFO] [1768368730.484433834] [moveit_ros.fix_workspace_bounds]: Param 'chomp.default_workspace_bounds' was not set. Using default value: 10.000000
+[move_group-3] [INFO] [1768368730.484442849] [moveit_ros.fix_start_state_bounds]: Param 'chomp.start_state_max_bounds_error' was set to 0.100000
+[move_group-3] [INFO] [1768368730.484446258] [moveit_ros.fix_start_state_bounds]: Param 'chomp.start_state_max_dt' was not set. Using default value: 0.500000
+[move_group-3] [INFO] [1768368730.484471449] [moveit_ros.fix_start_state_collision]: Param 'chomp.start_state_max_dt' was not set. Using default value: 0.500000
+[move_group-3] [INFO] [1768368730.484474386] [moveit_ros.fix_start_state_collision]: Param 'chomp.jiggle_fraction' was set to 0.050000
+[move_group-3] [INFO] [1768368730.484477510] [moveit_ros.fix_start_state_collision]: Param 'chomp.max_sampling_attempts' was not set. Using default value: 100
+[move_group-3] [INFO] [1768368730.484483804] [moveit.ros_planning.planning_pipeline]: Using planning request adapter 'Add Time Optimal Parameterization'
+[move_group-3] [INFO] [1768368730.484485874] [moveit.ros_planning.planning_pipeline]: Using planning request adapter 'Resolve constraint frames to robot links'
+[move_group-3] [INFO] [1768368730.484487486] [moveit.ros_planning.planning_pipeline]: Using planning request adapter 'Fix Workspace Bounds'
+[move_group-3] [INFO] [1768368730.484489142] [moveit.ros_planning.planning_pipeline]: Using planning request adapter 'Fix Start State Bounds'
+[move_group-3] [INFO] [1768368730.484490696] [moveit.ros_planning.planning_pipeline]: Using planning request adapter 'Fix Start State In Collision'
+[move_group-3] [INFO] [1768368730.484492255] [moveit.ros_planning.planning_pipeline]: Using planning request adapter 'Fix Start State Path Constraints'
+[move_group-3] [INFO] [1768368730.486479411] [moveit.ros_planning_interface.moveit_cpp]: Loading planning pipeline 'pilz_industrial_motion_planner'
+[move_group-3] [INFO] [1768368730.487798720] [moveit.pilz_industrial_motion_planner.joint_limits_aggregator]: Reading limits from namespace robot_description_planning
+[move_group-3] [INFO] [1768368730.499277225] [moveit.pilz_industrial_motion_planner]: Available plugins: pilz_industrial_motion_planner/PlanningContextLoaderCIRC pilz_industrial_motion_planner/PlanningContextLoaderLIN pilz_industrial_motion_planner/PlanningContextLoaderPTP 
+[move_group-3] [INFO] [1768368730.499309347] [moveit.pilz_industrial_motion_planner]: About to load: pilz_industrial_motion_planner/PlanningContextLoaderCIRC
+[move_group-3] [INFO] [1768368730.500083309] [moveit.pilz_industrial_motion_planner]: Registered Algorithm [CIRC]
+[move_group-3] [INFO] [1768368730.500109713] [moveit.pilz_industrial_motion_planner]: About to load: pilz_industrial_motion_planner/PlanningContextLoaderLIN
+[move_group-3] [INFO] [1768368730.500780537] [moveit.pilz_industrial_motion_planner]: Registered Algorithm [LIN]
+[move_group-3] [INFO] [1768368730.500819134] [moveit.pilz_industrial_motion_planner]: About to load: pilz_industrial_motion_planner/PlanningContextLoaderPTP
+[move_group-3] [INFO] [1768368730.501423374] [moveit.pilz_industrial_motion_planner]: Registered Algorithm [PTP]
+[move_group-3] [INFO] [1768368730.501449826] [moveit.ros_planning.planning_pipeline]: Using planning interface 'Pilz Industrial Motion Planner'
+[move_group-3] [INFO] [1768368730.502695128] [moveit.ros_planning_interface.moveit_cpp]: Loading planning pipeline 'ompl'
+[move_group-3] [INFO] [1768368730.508974252] [moveit.ros_planning.planning_pipeline]: Using planning interface 'OMPL'
+[move_group-3] [INFO] [1768368730.509631848] [moveit_ros.add_time_optimal_parameterization]: Param 'ompl.path_tolerance' was not set. Using default value: 0.100000
+[move_group-3] [INFO] [1768368730.509652950] [moveit_ros.add_time_optimal_parameterization]: Param 'ompl.resample_dt' was not set. Using default value: 0.100000
+[move_group-3] [INFO] [1768368730.509656226] [moveit_ros.add_time_optimal_parameterization]: Param 'ompl.min_angle_change' was not set. Using default value: 0.001000
+[move_group-3] [INFO] [1768368730.509670050] [moveit_ros.fix_workspace_bounds]: Param 'ompl.default_workspace_bounds' was not set. Using default value: 10.000000
+[move_group-3] [INFO] [1768368730.509680822] [moveit_ros.fix_start_state_bounds]: Param 'ompl.start_state_max_bounds_error' was set to 0.100000
+[move_group-3] [INFO] [1768368730.509684375] [moveit_ros.fix_start_state_bounds]: Param 'ompl.start_state_max_dt' was not set. Using default value: 0.500000
+[move_group-3] [INFO] [1768368730.509691040] [moveit_ros.fix_start_state_collision]: Param 'ompl.start_state_max_dt' was not set. Using default value: 0.500000
+[move_group-3] [INFO] [1768368730.509693666] [moveit_ros.fix_start_state_collision]: Param 'ompl.jiggle_fraction' was set to 0.050000
+[move_group-3] [INFO] [1768368730.509696116] [moveit_ros.fix_start_state_collision]: Param 'ompl.max_sampling_attempts' was not set. Using default value: 100
+[move_group-3] [INFO] [1768368730.509718908] [moveit.ros_planning.planning_pipeline]: Using planning request adapter 'Add Time Optimal Parameterization'
+[move_group-3] [INFO] [1768368730.509721338] [moveit.ros_planning.planning_pipeline]: Using planning request adapter 'Resolve constraint frames to robot links'
+[move_group-3] [INFO] [1768368730.509722995] [moveit.ros_planning.planning_pipeline]: Using planning request adapter 'Fix Workspace Bounds'
+[move_group-3] [INFO] [1768368730.509724743] [moveit.ros_planning.planning_pipeline]: Using planning request adapter 'Fix Start State Bounds'
+[move_group-3] [INFO] [1768368730.509726401] [moveit.ros_planning.planning_pipeline]: Using planning request adapter 'Fix Start State In Collision'
+[move_group-3] [INFO] [1768368730.509728034] [moveit.ros_planning.planning_pipeline]: Using planning request adapter 'Fix Start State Path Constraints'
+[move_group-3] [INFO] [1768368730.549968046] [moveit.plugins.moveit_simple_controller_manager]: Added FollowJointTrajectory controller for left_joint_trajectory_controller
+[move_group-3] [INFO] [1768368730.551309727] [moveit.plugins.moveit_simple_controller_manager]: Added FollowJointTrajectory controller for right_joint_trajectory_controller
+[move_group-3] [INFO] [1768368730.551333958] [moveit.plugins.moveit_simple_controller_manager]: Max effort set to 0.0
+[move_group-3] [INFO] [1768368730.552847841] [moveit.plugins.moveit_simple_controller_manager]: Added GripperCommand controller for left_gripper_controller
+[move_group-3] [INFO] [1768368730.552874264] [moveit.plugins.moveit_simple_controller_manager]: Max effort set to 0.0
+[move_group-3] [INFO] [1768368730.554273976] [moveit.plugins.moveit_simple_controller_manager]: Added GripperCommand controller for right_gripper_controller
+[move_group-3] [INFO] [1768368730.554412969] [moveit.plugins.moveit_simple_controller_manager]: Returned 4 controllers in list
+[move_group-3] [INFO] [1768368730.554432412] [moveit.plugins.moveit_simple_controller_manager]: Returned 4 controllers in list
+[move_group-3] [INFO] [1768368730.554727457] [moveit_ros.trajectory_execution_manager]: Trajectory execution is managing controllers
+[move_group-3] [INFO] [1768368730.554738974] [move_group.move_group]: MoveGroup debug mode is ON
+[move_group-3] [INFO] [1768368730.568923859] [move_group.move_group]: 
 [move_group-3] 
 [move_group-3] ********************************************************
 [move_group-3] * MoveGroup using: 
@@ -170,8 +170,8 @@
 [move_group-3] *     - StateValidationService
 [move_group-3] ********************************************************
 [move_group-3] 
-[move_group-3] [INFO] [1768325799.697196838] [moveit_move_group_capabilities_base.move_group_context]: MoveGroup context using planning plugin ompl_interface/OMPLPlanner
-[move_group-3] [INFO] [1768325799.697203935] [moveit_move_group_capabilities_base.move_group_context]: MoveGroup context initialization complete
+[move_group-3] [INFO] [1768368730.568977374] [moveit_move_group_capabilities_base.move_group_context]: MoveGroup context using planning plugin ompl_interface/OMPLPlanner
+[move_group-3] [INFO] [1768368730.568984218] [moveit_move_group_capabilities_base.move_group_context]: MoveGroup context initialization complete
 [move_group-3] [96mLoading 'move_group/ApplyPlanningSceneService'...
 [move_group-3] [0m[96mLoading 'move_group/ClearOctomapService'...
 [move_group-3] [0m[96mLoading 'move_group/MoveGroupCartesianPathService'...
@@ -185,206 +185,105 @@
 [move_group-3] [0m[92m
 [move_group-3] You can start planning now!
 [move_group-3] 
-[INFO] [spawner-6]: process started with pid [117636]
-[spawner-6] [INFO] [1768325801.174353700] [spawner_joint_state_broadcaster]: waiting for service /controller_manager/list_controllers to become available...
-[INFO] [spawner-7]: process started with pid [117660]
-[mujoco_ros2_control-1] [INFO] [1768325802.189971912] [controller_manager]: Loading controller 'left_joint_trajectory_controller'
-[mujoco_ros2_control-1] [WARN] [1768325802.199968346] [left_joint_trajectory_controller]: [Deprecated]: "allow_nonzero_velocity_at_trajectory_end" is set to true. The default behavior will change to false.
-[spawner-7] [INFO] [1768325802.237992048] [spawner_left_joint_trajectory_controller]: [94mLoaded [1mleft_joint_trajectory_controller[0m
-[mujoco_ros2_control-1] [INFO] [1768325802.239151350] [controller_manager]: Configuring controller 'left_joint_trajectory_controller'
-[mujoco_ros2_control-1] [INFO] [1768325802.239326097] [left_joint_trajectory_controller]: No specific joint names are used for command interfaces. Using 'joints' parameter.
-[mujoco_ros2_control-1] [INFO] [1768325802.239339824] [left_joint_trajectory_controller]: Command interfaces are [position] and state interfaces are [position].
-[mujoco_ros2_control-1] [INFO] [1768325802.239356120] [left_joint_trajectory_controller]: Using 'splines' interpolation method.
-[mujoco_ros2_control-1] [INFO] [1768325802.240495366] [left_joint_trajectory_controller]: Controller state will be published at 50.00 Hz.
-[mujoco_ros2_control-1] [INFO] [1768325802.249801438] [left_joint_trajectory_controller]: Action status changes will be monitored at 50.00 Hz.
-[rviz2-4] [ERROR] [1768325802.383364808] [moveit_ros_visualization.motion_planning_frame]: Action server: /recognize_objects not available
-[rviz2-4] [INFO] [1768325802.395033468] [moveit_ros_visualization.motion_planning_frame]: MoveGroup namespace changed: / -> . Reloading params.
-[mujoco_ros2_control-1] [INFO] [1768325802.401520304] [controller_manager]: Loading controller 'joint_state_broadcaster'
-[INFO] [spawner-8]: process started with pid [117678]
-[rviz2-4] [INFO] [1768325802.555872841] [moveit_rdf_loader.rdf_loader]: Loaded robot model in 0.0733102 seconds
-[rviz2-4] [INFO] [1768325802.555985675] [moveit_robot_model.robot_model]: Loading robot model 'openarm'...
-[rviz2-4] [INFO] [1768325802.555997967] [moveit_robot_model.robot_model]: No root/virtual joint specified in SRDF. Assuming fixed joint
-[spawner-6] [INFO] [1768325802.576255066] [spawner_joint_state_broadcaster]: [94mLoaded [1mjoint_state_broadcaster[0m
-[rviz2-4] [WARN] [1768325802.647044811] [moveit_robot_model.robot_model]: Could not identify parent group for end-effector 'left_ee'
-[rviz2-4] [WARN] [1768325802.647106741] [moveit_robot_model.robot_model]: Could not identify parent group for end-effector 'right_ee'
-[spawner-8] [INFO] [1768325802.705177797] [spawner_left_gripper_controller]: waiting for service /controller_manager/list_controllers to become available...
-[mujoco_ros2_control-1] [INFO] [1768325802.921465986] [controller_manager]: Configuring controller 'joint_state_broadcaster'
-[mujoco_ros2_control-1] [INFO] [1768325802.921563197] [joint_state_broadcaster]: 'joints' or 'interfaces' parameter is empty. All available state interfaces will be published
-[rviz2-4] [INFO] [1768325802.921646079] [moveit_ros.planning_scene_monitor.planning_scene_monitor]: Starting planning scene monitor
-[spawner-7] [INFO] [1768325802.922203814] [spawner_left_joint_trajectory_controller]: [92mConfigured and activated [1mleft_joint_trajectory_controller[0m
-[rviz2-4] [INFO] [1768325802.922825734] [moveit_ros.planning_scene_monitor.planning_scene_monitor]: Listening to '/monitored_planning_scene'
-[mujoco_ros2_control-1] [INFO] [1768325803.089940716] [controller_manager]: Loading controller 'right_joint_trajectory_controller'
-[mujoco_ros2_control-1] [WARN] [1768325803.102664590] [right_joint_trajectory_controller]: [Deprecated]: "allow_nonzero_velocity_at_trajectory_end" is set to true. The default behavior will change to false.
-[rviz2-4] [ERROR] [1768325803.211072049] [rviz2]: Error retrieving file [file:///home/ros/openarm_ws/openarm_mujoco/v1/meshes/visual/cam/d435_0.stl]: Couldn't open file /home/ros/openarm_ws/openarm_mujoco/v1/meshes/visual/cam/d435_0.stl
-[rviz2-4] [ERROR] [1768325803.211186780] [rviz2]: Error retrieving file [file:///home/ros/openarm_ws/openarm_mujoco/v1/meshes/visual/cam/d435_0.stl]: Couldn't open file /home/ros/openarm_ws/openarm_mujoco/v1/meshes/visual/cam/d435_0.stl
-[spawner-7] [INFO] [1768325803.269003858] [spawner_left_joint_trajectory_controller]: [94mLoaded [1mright_joint_trajectory_controller[0m
-[rviz2-4] [ERROR] [1768325803.551104355] [rviz2]: The link openarm_left_left_finger is has unrealistic inertia, so the equivalent inertia box will not be shown.
+[INFO] [spawner-6]: process started with pid [11820]
+[spawner-6] [INFO] [1768368732.066679225] [spawner_joint_state_broadcaster]: waiting for service /controller_manager/list_controllers to become available...
+[INFO] [spawner-7]: process started with pid [11831]
+[mujoco_ros2_control-1] [INFO] [1768368733.071316413] [controller_manager]: Loading controller 'joint_state_broadcaster'
+[spawner-6] [INFO] [1768368733.182310307] [spawner_joint_state_broadcaster]: [94mLoaded [1mjoint_state_broadcaster[0m
+[mujoco_ros2_control-1] [INFO] [1768368733.184099987] [controller_manager]: Configuring controller 'joint_state_broadcaster'
+[mujoco_ros2_control-1] [INFO] [1768368733.184237592] [joint_state_broadcaster]: 'joints' or 'interfaces' parameter is empty. All available state interfaces will be published
+[rviz2-4] [ERROR] [1768368733.267887031] [moveit_ros_visualization.motion_planning_frame]: Action server: /recognize_objects not available
+[rviz2-4] [INFO] [1768368733.295188485] [moveit_ros_visualization.motion_planning_frame]: MoveGroup namespace changed: / -> . Reloading params.
+[rviz2-4] [INFO] [1768368733.402360710] [moveit_rdf_loader.rdf_loader]: Loaded robot model in 0.0545658 seconds
+[rviz2-4] [INFO] [1768368733.402419837] [moveit_robot_model.robot_model]: Loading robot model 'openarm'...
+[rviz2-4] [INFO] [1768368733.402430315] [moveit_robot_model.robot_model]: No root/virtual joint specified in SRDF. Assuming fixed joint
+[INFO] [spawner-8]: process started with pid [11847]
+[rviz2-4] [WARN] [1768368733.485374030] [moveit_robot_model.robot_model]: Could not identify parent group for end-effector 'left_ee'
+[rviz2-4] [WARN] [1768368733.485415414] [moveit_robot_model.robot_model]: Could not identify parent group for end-effector 'right_ee'
+[spawner-8] [INFO] [1768368733.565408709] [spawner_left_gripper_controller]: waiting for service /controller_manager/list_controllers to become available...
+[spawner-6] [INFO] [1768368733.682148789] [spawner_joint_state_broadcaster]: [92mConfigured and activated [1mjoint_state_broadcaster[0m
+[mujoco_ros2_control-1] [INFO] [1768368733.683615167] [controller_manager]: Loading controller 'left_joint_trajectory_controller'
+[mujoco_ros2_control-1] [WARN] [1768368733.696006215] [left_joint_trajectory_controller]: [Deprecated]: "allow_nonzero_velocity_at_trajectory_end" is set to true. The default behavior will change to false.
+[rviz2-4] [INFO] [1768368733.752922314] [moveit_ros.planning_scene_monitor.planning_scene_monitor]: Starting planning scene monitor
+[rviz2-4] [INFO] [1768368733.753600023] [moveit_ros.planning_scene_monitor.planning_scene_monitor]: Listening to '/monitored_planning_scene'
+[INFO] [spawner-6]: process has finished cleanly [pid 11820]
+[spawner-7] [INFO] [1768368733.856779856] [spawner_left_joint_trajectory_controller]: [94mLoaded [1mleft_joint_trajectory_controller[0m
+[mujoco_ros2_control-1] [INFO] [1768368733.858200882] [controller_manager]: Configuring controller 'left_joint_trajectory_controller'
+[mujoco_ros2_control-1] [INFO] [1768368733.858334508] [left_joint_trajectory_controller]: No specific joint names are used for command interfaces. Using 'joints' parameter.
+[mujoco_ros2_control-1] [INFO] [1768368733.858346281] [left_joint_trajectory_controller]: Command interfaces are [position] and state interfaces are [position].
+[mujoco_ros2_control-1] [INFO] [1768368733.858363152] [left_joint_trajectory_controller]: Using 'splines' interpolation method.
+[mujoco_ros2_control-1] [INFO] [1768368733.858957855] [left_joint_trajectory_controller]: Controller state will be published at 50.00 Hz.
+[mujoco_ros2_control-1] [INFO] [1768368733.862123012] [left_joint_trajectory_controller]: Action status changes will be monitored at 50.00 Hz.
+[rviz2-4] [ERROR] [1768368733.931038776] [rviz2]: Error retrieving file [file:///home/ros/openarm_ws/openarm_mujoco/v1/meshes/visual/cam/d435_0.stl]: Couldn't open file /home/ros/openarm_ws/openarm_mujoco/v1/meshes/visual/cam/d435_0.stl
+[rviz2-4] [ERROR] [1768368733.931122756] [rviz2]: Error retrieving file [file:///home/ros/openarm_ws/openarm_mujoco/v1/meshes/visual/cam/d435_0.stl]: Couldn't open file /home/ros/openarm_ws/openarm_mujoco/v1/meshes/visual/cam/d435_0.stl
+[mujoco_ros2_control-1] [INFO] [1768368734.013528879] [controller_manager]: Loading controller 'left_gripper_controller'
+[spawner-8] [INFO] [1768368734.181252423] [spawner_left_gripper_controller]: [94mLoaded [1mleft_gripper_controller[0m
+[rviz2-4] [ERROR] [1768368734.237787002] [rviz2]: The link openarm_left_left_finger is has unrealistic inertia, so the equivalent inertia box will not be shown.
 [rviz2-4] 
-[mujoco_ros2_control-1] [INFO] [1768325803.647987307] [controller_manager]: Configuring controller 'right_joint_trajectory_controller'
-[mujoco_ros2_control-1] [INFO] [1768325803.648167212] [right_joint_trajectory_controller]: No specific joint names are used for command interfaces. Using 'joints' parameter.
-[mujoco_ros2_control-1] [INFO] [1768325803.648180408] [right_joint_trajectory_controller]: Command interfaces are [position] and state interfaces are [position].
-[mujoco_ros2_control-1] [INFO] [1768325803.648195250] [right_joint_trajectory_controller]: Using 'splines' interpolation method.
-[mujoco_ros2_control-1] [INFO] [1768325803.649075303] [right_joint_trajectory_controller]: Controller state will be published at 50.00 Hz.
-[spawner-6] [INFO] [1768325803.648690869] [spawner_joint_state_broadcaster]: [92mConfigured and activated [1mjoint_state_broadcaster[0m
-[mujoco_ros2_control-1] [INFO] [1768325803.651220572] [right_joint_trajectory_controller]: Action status changes will be monitored at 50.00 Hz.
-[INFO] [spawner-6]: process has finished cleanly [pid 117636]
-[INFO] [ros2-9]: process started with pid [117696]
-[INFO] [ros2-10]: process started with pid [117698]
-[INFO] [virtual_camera-11]: process started with pid [117700]
-[mujoco_ros2_control-1] [INFO] [1768325804.174047436] [controller_manager]: Loading controller 'left_gripper_controller'
-[spawner-7] [INFO] [1768325804.174854868] [spawner_left_joint_trajectory_controller]: [92mConfigured and activated [1mright_joint_trajectory_controller[0m
-[INFO] [spawner-7]: process has finished cleanly [pid 117660]
-[spawner-8] [INFO] [1768325804.375626778] [spawner_left_gripper_controller]: [94mLoaded [1mleft_gripper_controller[0m
-[mujoco_ros2_control-1] [INFO] [1768325804.376865495] [controller_manager]: Configuring controller 'left_gripper_controller'
-[mujoco_ros2_control-1] [INFO] [1768325804.376925427] [left_gripper_controller]: Action status changes will be monitored at 20.000000 Hz.
-[virtual_camera-11] [INFO] [1768325804.428241007] [virtual_camera]: Virtual Camera Started
-[rviz2-4] [ERROR] [1768325804.571008420] [rviz2]: The link openarm_left_right_finger is has unrealistic inertia, so the equivalent inertia box will not be shown.
+[mujoco_ros2_control-1] [INFO] [1768368734.518485676] [controller_manager]: Configuring controller 'left_gripper_controller'
+[mujoco_ros2_control-1] [INFO] [1768368734.518556108] [left_gripper_controller]: Action status changes will be monitored at 20.000000 Hz.
+[spawner-7] [INFO] [1768368734.518904901] [spawner_left_joint_trajectory_controller]: [92mConfigured and activated [1mleft_joint_trajectory_controller[0m
+[mujoco_ros2_control-1] [INFO] [1768368734.687426710] [controller_manager]: Loading controller 'right_joint_trajectory_controller'
+[mujoco_ros2_control-1] [WARN] [1768368734.701229424] [right_joint_trajectory_controller]: [Deprecated]: "allow_nonzero_velocity_at_trajectory_end" is set to true. The default behavior will change to false.
+[spawner-7] [INFO] [1768368734.851885635] [spawner_left_joint_trajectory_controller]: [94mLoaded [1mright_joint_trajectory_controller[0m
+[INFO] [ros2-9]: process started with pid [11886]
+[INFO] [ros2-10]: process started with pid [11888]
+[INFO] [virtual_camera-11]: process started with pid [11890]
+[rviz2-4] [ERROR] [1768368735.189209058] [rviz2]: The link openarm_left_right_finger is has unrealistic inertia, so the equivalent inertia box will not be shown.
 [rviz2-4] 
-[rviz2-4] [ERROR] [1768325804.571300333] [rviz2]: The link openarm_right_left_finger is has unrealistic inertia, so the equivalent inertia box will not be shown.
+[rviz2-4] [ERROR] [1768368735.189401715] [rviz2]: The link openarm_right_left_finger is has unrealistic inertia, so the equivalent inertia box will not be shown.
 [rviz2-4] 
-[rviz2-4] [ERROR] [1768325804.572496895] [rviz2]: The link openarm_right_right_finger is has unrealistic inertia, so the equivalent inertia box will not be shown.
+[rviz2-4] [ERROR] [1768368735.191038852] [rviz2]: The link openarm_right_right_finger is has unrealistic inertia, so the equivalent inertia box will not be shown.
 [rviz2-4] 
-[rviz2-4] [ERROR] [1768325804.575536494] [rviz2]: Error retrieving file [file:///home/ros/openarm_ws/openarm_mujoco/v1/meshes/visual/cam/d435_0.stl]: Couldn't open file /home/ros/openarm_ws/openarm_mujoco/v1/meshes/visual/cam/d435_0.stl
-[rviz2-4] [ERROR] [1768325804.575593458] [rviz2]: Error retrieving file [file:///home/ros/openarm_ws/openarm_mujoco/v1/meshes/visual/cam/d435_0.stl]: Couldn't open file /home/ros/openarm_ws/openarm_mujoco/v1/meshes/visual/cam/d435_0.stl
-[rviz2-4] [ERROR] [1768325804.575944775] [rviz2]: The link openarm_left_left_finger is has unrealistic inertia, so the equivalent inertia box will not be shown.
+[mujoco_ros2_control-1] [INFO] [1768368735.193750980] [controller_manager]: Configuring controller 'right_joint_trajectory_controller'
+[mujoco_ros2_control-1] [INFO] [1768368735.194284349] [right_joint_trajectory_controller]: No specific joint names are used for command interfaces. Using 'joints' parameter.
+[mujoco_ros2_control-1] [INFO] [1768368735.194394362] [right_joint_trajectory_controller]: Command interfaces are [position] and state interfaces are [position].
+[mujoco_ros2_control-1] [INFO] [1768368735.194434632] [right_joint_trajectory_controller]: Using 'splines' interpolation method.
+[mujoco_ros2_control-1] [INFO] [1768368735.196515916] [right_joint_trajectory_controller]: Controller state will be published at 50.00 Hz.
+[rviz2-4] [ERROR] [1768368735.195392971] [rviz2]: Error retrieving file [file:///home/ros/openarm_ws/openarm_mujoco/v1/meshes/visual/cam/d435_0.stl]: Couldn't open file /home/ros/openarm_ws/openarm_mujoco/v1/meshes/visual/cam/d435_0.stl
+[rviz2-4] [ERROR] [1768368735.195468340] [rviz2]: Error retrieving file [file:///home/ros/openarm_ws/openarm_mujoco/v1/meshes/visual/cam/d435_0.stl]: Couldn't open file /home/ros/openarm_ws/openarm_mujoco/v1/meshes/visual/cam/d435_0.stl
+[rviz2-4] [ERROR] [1768368735.195967543] [rviz2]: The link openarm_left_left_finger is has unrealistic inertia, so the equivalent inertia box will not be shown.
 [rviz2-4] 
-[rviz2-4] [ERROR] [1768325804.576537255] [rviz2]: The link openarm_left_right_finger is has unrealistic inertia, so the equivalent inertia box will not be shown.
+[rviz2-4] [ERROR] [1768368735.197382775] [rviz2]: The link openarm_left_right_finger is has unrealistic inertia, so the equivalent inertia box will not be shown.
 [rviz2-4] 
-[rviz2-4] [ERROR] [1768325804.576628689] [rviz2]: The link openarm_right_left_finger is has unrealistic inertia, so the equivalent inertia box will not be shown.
+[rviz2-4] [ERROR] [1768368735.197488743] [rviz2]: The link openarm_right_left_finger is has unrealistic inertia, so the equivalent inertia box will not be shown.
 [rviz2-4] 
-[rviz2-4] [ERROR] [1768325804.577200894] [rviz2]: The link openarm_right_right_finger is has unrealistic inertia, so the equivalent inertia box will not be shown.
+[spawner-8] [INFO] [1768368735.196149123] [spawner_left_gripper_controller]: [92mConfigured and activated [1mleft_gripper_controller[0m
+[rviz2-4] [ERROR] [1768368735.198176308] [rviz2]: The link openarm_right_right_finger is has unrealistic inertia, so the equivalent inertia box will not be shown.
 [rviz2-4] 
-[rviz2-4] [INFO] [1768325804.583697466] [interactive_marker_display_104775804274688]: Connected on namespace: /rviz_moveit_motion_planning_display/robot_interaction_interactive_marker_topic
-[rviz2-4] [ERROR] [1768325804.584064974] [rviz2]: Error retrieving file [file:///home/ros/openarm_ws/openarm_mujoco/v1/meshes/visual/cam/d435_0.stl]: Couldn't open file /home/ros/openarm_ws/openarm_mujoco/v1/meshes/visual/cam/d435_0.stl
-[rviz2-4] [ERROR] [1768325804.584104406] [rviz2]: Error retrieving file [file:///home/ros/openarm_ws/openarm_mujoco/v1/meshes/visual/cam/d435_0.stl]: Couldn't open file /home/ros/openarm_ws/openarm_mujoco/v1/meshes/visual/cam/d435_0.stl
-[rviz2-4] [ERROR] [1768325804.584474488] [rviz2]: The link openarm_left_left_finger is has unrealistic inertia, so the equivalent inertia box will not be shown.
+[mujoco_ros2_control-1] [INFO] [1768368735.198773813] [right_joint_trajectory_controller]: Action status changes will be monitored at 50.00 Hz.
+[rviz2-4] [INFO] [1768368735.208262768] [interactive_marker_display_101057223446336]: Connected on namespace: /rviz_moveit_motion_planning_display/robot_interaction_interactive_marker_topic
+[rviz2-4] [ERROR] [1768368735.208648671] [rviz2]: Error retrieving file [file:///home/ros/openarm_ws/openarm_mujoco/v1/meshes/visual/cam/d435_0.stl]: Couldn't open file /home/ros/openarm_ws/openarm_mujoco/v1/meshes/visual/cam/d435_0.stl
+[rviz2-4] [ERROR] [1768368735.208686436] [rviz2]: Error retrieving file [file:///home/ros/openarm_ws/openarm_mujoco/v1/meshes/visual/cam/d435_0.stl]: Couldn't open file /home/ros/openarm_ws/openarm_mujoco/v1/meshes/visual/cam/d435_0.stl
+[rviz2-4] [ERROR] [1768368735.209031640] [rviz2]: The link openarm_left_left_finger is has unrealistic inertia, so the equivalent inertia box will not be shown.
 [rviz2-4] 
-[rviz2-4] [ERROR] [1768325804.585098751] [rviz2]: The link openarm_left_right_finger is has unrealistic inertia, so the equivalent inertia box will not be shown.
+[rviz2-4] [ERROR] [1768368735.209636537] [rviz2]: The link openarm_left_right_finger is has unrealistic inertia, so the equivalent inertia box will not be shown.
 [rviz2-4] 
-[rviz2-4] [ERROR] [1768325804.585253762] [rviz2]: The link openarm_right_left_finger is has unrealistic inertia, so the equivalent inertia box will not be shown.
+[rviz2-4] [ERROR] [1768368735.209754247] [rviz2]: The link openarm_right_left_finger is has unrealistic inertia, so the equivalent inertia box will not be shown.
 [rviz2-4] 
-[rviz2-4] [ERROR] [1768325804.585917390] [rviz2]: The link openarm_right_right_finger is has unrealistic inertia, so the equivalent inertia box will not be shown.
+[rviz2-4] [ERROR] [1768368735.210265000] [rviz2]: The link openarm_right_right_finger is has unrealistic inertia, so the equivalent inertia box will not be shown.
 [rviz2-4] 
-[rviz2-4] [ERROR] [1768325804.587056328] [rviz2]: Error retrieving file [file:///home/ros/openarm_ws/openarm_mujoco/v1/meshes/visual/cam/d435_0.stl]: Couldn't open file /home/ros/openarm_ws/openarm_mujoco/v1/meshes/visual/cam/d435_0.stl
-[rviz2-4] [ERROR] [1768325804.587128472] [rviz2]: Error retrieving file [file:///home/ros/openarm_ws/openarm_mujoco/v1/meshes/visual/cam/d435_0.stl]: Couldn't open file /home/ros/openarm_ws/openarm_mujoco/v1/meshes/visual/cam/d435_0.stl
-[rviz2-4] [ERROR] [1768325804.587384938] [rviz2]: The link openarm_left_left_finger is has unrealistic inertia, so the equivalent inertia box will not be shown.
+[rviz2-4] [ERROR] [1768368735.211189060] [rviz2]: Error retrieving file [file:///home/ros/openarm_ws/openarm_mujoco/v1/meshes/visual/cam/d435_0.stl]: Couldn't open file /home/ros/openarm_ws/openarm_mujoco/v1/meshes/visual/cam/d435_0.stl
+[rviz2-4] [ERROR] [1768368735.211254305] [rviz2]: Error retrieving file [file:///home/ros/openarm_ws/openarm_mujoco/v1/meshes/visual/cam/d435_0.stl]: Couldn't open file /home/ros/openarm_ws/openarm_mujoco/v1/meshes/visual/cam/d435_0.stl
+[rviz2-4] [ERROR] [1768368735.211474264] [rviz2]: The link openarm_left_left_finger is has unrealistic inertia, so the equivalent inertia box will not be shown.
 [rviz2-4] 
-[rviz2-4] [ERROR] [1768325804.587999607] [rviz2]: The link openarm_left_right_finger is has unrealistic inertia, so the equivalent inertia box will not be shown.
+[rviz2-4] [ERROR] [1768368735.212035852] [rviz2]: The link openarm_left_right_finger is has unrealistic inertia, so the equivalent inertia box will not be shown.
 [rviz2-4] 
-[rviz2-4] [ERROR] [1768325804.588125453] [rviz2]: The link openarm_right_left_finger is has unrealistic inertia, so the equivalent inertia box will not be shown.
+[rviz2-4] [ERROR] [1768368735.212140795] [rviz2]: The link openarm_right_left_finger is has unrealistic inertia, so the equivalent inertia box will not be shown.
 [rviz2-4] 
-[rviz2-4] [ERROR] [1768325804.589150974] [rviz2]: The link openarm_right_right_finger is has unrealistic inertia, so the equivalent inertia box will not be shown.
+[rviz2-4] [ERROR] [1768368735.212659128] [rviz2]: The link openarm_right_right_finger is has unrealistic inertia, so the equivalent inertia box will not be shown.
 [rviz2-4] 
-[rviz2-4] [INFO] [1768325804.598388267] [moveit_ros_visualization.motion_planning_frame]: group left_arm
-[rviz2-4] [INFO] [1768325804.598424925] [moveit_ros_visualization.motion_planning_frame]: Constructing new MoveGroup connection for group 'left_arm' in namespace ''
-[rviz2-4] [INFO] [1768325804.616951527] [move_group_interface]: Ready to take commands for planning group left_arm.
-[rviz2-4] [INFO] [1768325804.622822658] [moveit_ros_visualization.motion_planning_frame]: group left_arm
-[rviz2-4] [INFO] [1768325804.624936751] [moveit_ros_visualization.motion_planning_frame]: group left_arm
-[ros2-9] Set parameter successful
-[move_group-3] [WARN] [1768325804.751756537] [tf2_buffer]: Detected time source change. Clearing TF buffer.
-[move_group-3] [WARN] [1768325804.751797954] [tf2_buffer]: Detected time source change. Clearing TF buffer.
-[ros2-10] Set parameter successful
-[rviz2-4] [INFO] [1768325804.818248469] [interactive_marker_display_104775804274688]: Sending request for interactive markers
-[INFO] [ros2-9]: process has finished cleanly [pid 117696]
-[spawner-8] [INFO] [1768325804.912837103] [spawner_left_gripper_controller]: [92mConfigured and activated [1mleft_gripper_controller[0m
-[INFO] [ros2-10]: process has finished cleanly [pid 117698]
-[mujoco_ros2_control-1] [INFO] [1768325804.915812703] [controller_manager]: Loading controller 'right_gripper_controller'
-[spawner-8] [INFO] [1768325805.082257656] [spawner_left_gripper_controller]: [94mLoaded [1mright_gripper_controller[0m
-[mujoco_ros2_control-1] [INFO] [1768325805.082965002] [controller_manager]: Configuring controller 'right_gripper_controller'
-[mujoco_ros2_control-1] [INFO] [1768325805.083099555] [right_gripper_controller]: Action status changes will be monitored at 20.000000 Hz.
-[rviz2-4] [INFO] [1768325805.370338084] [interactive_marker_display_104775804274688]: Service response received for initialization
-[spawner-8] [INFO] [1768325805.608389251] [spawner_left_gripper_controller]: [92mConfigured and activated [1mright_gripper_controller[0m
-[INFO] [spawner-8]: process has finished cleanly [pid 117678]
-[INFO] [gripper_controller-12]: process started with pid [117771]
-[INFO] [full_verification-13]: process started with pid [117773]
-[gripper_controller-12] [INFO] [1768325811.422724960] [gripper_controller]: 夹爪控制模块已启动（双机械臂版本）
-[gripper_controller-12] [INFO] [1768325811.422996333] [gripper_controller]: 左夹爪 Action 话题: /left_gripper_controller/gripper_cmd
-[gripper_controller-12] [INFO] [1768325811.423179823] [gripper_controller]: 右夹爪 Action 话题: /right_gripper_controller/gripper_cmd
-[gripper_controller-12] [INFO] [1768325811.423341103] [gripper_controller]: 等待夹爪控制器启动...
-[full_verification-13] [INFO] [1768325812.413620775] [full_verification]: 抓取规划服务不可用，等待中...
-[full_verification-13] [INFO] [1768325813.422710097] [full_verification]: 抓取规划服务不可用，等待中...
-[INFO] [banana_detector-14]: process started with pid [117793]
-[INFO] [grasp_planner-15]: process started with pid [117795]
-[banana_detector-14] [INFO] [1768325814.432088240] [banana_detector]: Banana Detector: Started (Clean TF Mode)
-[full_verification-13] [INFO] [1768325814.438759148] [full_verification]: 全流程实验验证系统已启动
-[full_verification-13] [INFO] [1768325814.439018333] [full_verification]: 等待视觉模块定位目标物体...
-[full_verification-13] [INFO] [1768325814.439439950] [full_verification]: === 开始全流程抓取验证 ===
-[full_verification-13] [INFO] [1768325814.439632774] [full_verification]: 步骤0: 等待视觉模块检测目标物体
-[full_verification-13] [INFO] [1768325814.439796766] [full_verification]: 等待视觉模块检测目标物体...
-[grasp_planner-15] [INFO] [1768325814.481440051] [grasp_planner]: 抓取规划模块已启动
-[banana_detector-14] [INFO] [1768325821.185792249] [banana_detector]:  Result: X=0.350, Y=-0.001, Z=0.350
-[full_verification-13] [INFO] [1768325821.500720205] [full_verification]: 目标物体已检测到! 位置: x=0.350, y=-0.001, z=0.350
-[full_verification-13] [INFO] [1768325821.500965173] [full_verification]: 步骤1: 打开夹爪
-[gripper_controller-12] [INFO] [1768325821.506636610] [gripper_controller]: 收到夹爪控制请求: 打开
-[gripper_controller-12] [INFO] [1768325821.507049776] [gripper_controller]: 左夹爪控制服务器已就绪
-[gripper_controller-12] [INFO] [1768325821.507253188] [gripper_controller]: 发送左夹爪控制命令: 位置=0.044, 最大力=50.0
-[gripper_controller-12] [INFO] [1768325821.507436392] [gripper_controller]: 注意：位置值含义 - 0.0=闭合（手指靠拢），0.044=打开（手指分开）
-[gripper_controller-12] [INFO] [1768325821.507892842] [gripper_controller]: 左夹爪控制命令已发送（异步执行）
-[gripper_controller-12] [INFO] [1768325821.508075337] [gripper_controller]: 左夹爪已打开
-[mujoco_ros2_control-1] [INFO] [1768325821.507919584] [left_gripper_controller]: Received & accepted new action goal
-[full_verification-13] [INFO] [1768325821.509108768] [full_verification]: 夹爪打开成功
-[gripper_controller-12] [INFO] [1768325821.509366141] [gripper_controller]: 左夹爪控制命令已接受并执行
-[gripper_controller-12] [INFO] [1768325821.509571590] [gripper_controller]: 当前左夹爪位置: -0.0000
-[full_verification-13] [INFO] [1768325823.518226133] [full_verification]: 步骤2: 请求抓取规划
-[grasp_planner-15] [INFO] [1768325823.529441705] [grasp_planner]: 收到抓取规划请求
-[grasp_planner-15] [INFO] [1768325823.529844610] [grasp_planner]: 获取到目标位置: x=0.350, y=-0.001, z=0.350
-[grasp_planner-15] [INFO] [1768325823.530147774] [grasp_planner]: 开始异步 MoveIt 规划...
-[grasp_planner-15] [INFO] [1768325823.530989509] [grasp_planner]: 发送 MoveIt Action Goal...
-[move_group-3] [INFO] [1768325823.537179478] [moveit_move_group_default_capabilities.move_action_capability]: Received request
-[move_group-3] [INFO] [1768325823.537440102] [moveit_move_group_default_capabilities.move_action_capability]: executing..
-[grasp_planner-15] [INFO] [1768325823.551283162] [grasp_planner]: MoveIt Goal 已接受，等待结果...
-[move_group-3] [INFO] [1768325823.589401720] [moveit_move_group_default_capabilities.move_action_capability]: Planning request received for MoveGroup action. Forwarding to planning pipeline.
-[move_group-3] [INFO] [1768325823.590268050] [moveit_ros.fix_start_state_bounds]: Starting state is just outside bounds (joint 'openarm_left_joint4'). Assuming within bounds.
-[move_group-3] [INFO] [1768325823.592700589] [moveit_collision_detection_fcl.collision_common]: Found a contact between 'openarm_left_link4' (type 'Robot link') and 'openarm_left_link3' (type 'Robot link'), which constitutes a collision. Contact information is not stored.
-[move_group-3] [INFO] [1768325823.592777877] [moveit_collision_detection_fcl.collision_common]: Collision checking is considered complete (collision was found and 0 contacts are stored)
-[move_group-3] [INFO] [1768325823.592787197] [moveit_ros.fix_start_state_collision]: Start state appears to be in collision with respect to group left_arm
-[move_group-3] [WARN] [1768325824.123960718] [moveit_ros.fix_start_state_collision]: Unable to find a valid state nearby the start state (using jiggle fraction of 0.050000 and 100 sampling attempts). Passing the original planning request to the planner.
-[move_group-3] [INFO] [1768325824.125781315] [moveit.ompl_planning.model_based_planning_context]: Planner configuration 'left_arm' will use planner 'geometric::RRTConnect'. Additional configuration parameters will be set when the planner is constructed.
-[move_group-3] [WARN] [1768325824.127332925] [ompl]: ./src/ompl/base/src/Planner.cpp:248 - left_arm/left_arm: Skipping invalid start state (invalid state)
-[move_group-3] [WARN] [1768325824.127395812] [ompl]: ./src/ompl/base/src/Planner.cpp:248 - left_arm/left_arm: Skipping invalid start state (invalid state)
-[move_group-3] [ERROR] [1768325824.127442193] [ompl]: ./src/ompl/geometric/planners/rrt/src/RRTConnect.cpp:219 - left_arm/left_arm: Motion planning start tree could not be initialized!
-[move_group-3] [ERROR] [1768325824.127454206] [ompl]: ./src/ompl/geometric/planners/rrt/src/RRTConnect.cpp:219 - left_arm/left_arm: Motion planning start tree could not be initialized!
-[move_group-3] [WARN] [1768325824.127525777] [ompl]: ./src/ompl/base/src/Planner.cpp:248 - left_arm/left_arm: Skipping invalid start state (invalid state)
-[move_group-3] [ERROR] [1768325824.127550695] [ompl]: ./src/ompl/geometric/planners/rrt/src/RRTConnect.cpp:219 - left_arm/left_arm: Motion planning start tree could not be initialized!
-[move_group-3] [WARN] [1768325824.127749310] [ompl]: ./src/ompl/base/src/Planner.cpp:248 - left_arm/left_arm: Skipping invalid start state (invalid state)
-[move_group-3] [ERROR] [1768325824.127774626] [ompl]: ./src/ompl/geometric/planners/rrt/src/RRTConnect.cpp:219 - left_arm/left_arm: Motion planning start tree could not be initialized!
-[move_group-3] [WARN] [1768325824.127820288] [ompl]: ./src/ompl/tools/multiplan/src/ParallelPlan.cpp:138 - ParallelPlan::solve(): Unable to find solution by any of the threads in 0.001869 seconds
-[move_group-3] [WARN] [1768325824.127950855] [ompl]: ./src/ompl/base/src/Planner.cpp:248 - left_arm/left_arm: Skipping invalid start state (invalid state)
-[move_group-3] [ERROR] [1768325824.127967236] [ompl]: ./src/ompl/geometric/planners/rrt/src/RRTConnect.cpp:219 - left_arm/left_arm: Motion planning start tree could not be initialized!
-[move_group-3] [WARN] [1768325824.129624951] [ompl]: ./src/ompl/base/src/Planner.cpp:248 - left_arm/left_arm: Skipping invalid start state (invalid state)
-[move_group-3] [WARN] [1768325824.129688988] [ompl]: ./src/ompl/base/src/Planner.cpp:248 - left_arm/left_arm: Skipping invalid start state (invalid state)
-[move_group-3] [ERROR] [1768325824.129712850] [ompl]: ./src/ompl/geometric/planners/rrt/src/RRTConnect.cpp:219 - left_arm/left_arm: Motion planning start tree could not be initialized!
-[move_group-3] [ERROR] [1768325824.129774420] [ompl]: ./src/ompl/geometric/planners/rrt/src/RRTConnect.cpp:219 - left_arm/left_arm: Motion planning start tree could not be initialized!
-[move_group-3] [WARN] [1768325824.129799913] [ompl]: ./src/ompl/base/src/Planner.cpp:248 - left_arm/left_arm: Skipping invalid start state (invalid state)
-[move_group-3] [ERROR] [1768325824.129824426] [ompl]: ./src/ompl/geometric/planners/rrt/src/RRTConnect.cpp:219 - left_arm/left_arm: Motion planning start tree could not be initialized!
-[move_group-3] [WARN] [1768325824.130226688] [ompl]: ./src/ompl/tools/multiplan/src/ParallelPlan.cpp:138 - ParallelPlan::solve(): Unable to find solution by any of the threads in 0.002361 seconds
-[move_group-3] [WARN] [1768325824.130349272] [ompl]: ./src/ompl/base/src/Planner.cpp:248 - left_arm/left_arm: Skipping invalid start state (invalid state)
-[move_group-3] [ERROR] [1768325824.130384818] [ompl]: ./src/ompl/geometric/planners/rrt/src/RRTConnect.cpp:219 - left_arm/left_arm: Motion planning start tree could not be initialized!
-[move_group-3] [WARN] [1768325824.130405412] [ompl]: ./src/ompl/base/src/Planner.cpp:248 - left_arm/left_arm: Skipping invalid start state (invalid state)
-[move_group-3] [ERROR] [1768325824.130438761] [ompl]: ./src/ompl/geometric/planners/rrt/src/RRTConnect.cpp:219 - left_arm/left_arm: Motion planning start tree could not be initialized!
-[move_group-3] [WARN] [1768325824.130471438] [ompl]: ./src/ompl/tools/multiplan/src/ParallelPlan.cpp:138 - ParallelPlan::solve(): Unable to find solution by any of the threads in 0.000206 seconds
-[move_group-3] [WARN] [1768325824.139105767] [ompl]: ./src/ompl/base/goals/src/GoalLazySamples.cpp:129 - Goal sampling thread never did any work.
-[move_group-3] [INFO] [1768325824.139233597] [moveit.ompl_planning.model_based_planning_context]: Unable to solve the planning problem
-[move_group-3] [INFO] [1768325824.139296231] [moveit_move_group_default_capabilities.move_action_capability]: Catastrophic failure
-[grasp_planner-15] [ERROR] [1768325824.142249287] [grasp_planner]: MoveIt 规划失败，错误码: 99999
-[grasp_planner-15] [ERROR] [1768325824.142670874] [grasp_planner]: MoveIt 规划失败，返回 None
-[full_verification-13] [ERROR] [1768325824.143639998] [full_verification]: 抓取规划失败，错误码: 99999
-[full_verification-13] [ERROR] [1768325824.143852324] [full_verification]: 抓取规划失败，终止流程
-[banana_detector-14] [INFO] [1768325825.100284151] [banana_detector]:  Result: X=0.350, Y=-0.001, Z=0.350
-[banana_detector-14] [INFO] [1768325829.085918633] [banana_detector]:  Result: X=0.350, Y=-0.001, Z=0.350
-[banana_detector-14] [INFO] [1768325832.753130532] [banana_detector]:  Result: X=0.350, Y=-0.001, Z=0.350
-[banana_detector-14] [INFO] [1768325836.385873412] [banana_detector]:  Result: X=0.350, Y=-0.001, Z=0.350
-[banana_detector-14] [INFO] [1768325843.009035049] [banana_detector]:  Result: X=0.350, Y=-0.001, Z=0.350
-[banana_detector-14] [INFO] [1768325846.028989360] [banana_detector]:  Result: X=0.350, Y=-0.001, Z=0.350
-[banana_detector-14] [INFO] [1768325847.265960687] [banana_detector]:  Result: X=0.350, Y=-0.001, Z=0.350
-[banana_detector-14] [INFO] [1768325850.916339114] [banana_detector]:  Result: X=0.350, Y=-0.001, Z=0.350
-[banana_detector-14] [INFO] [1768325854.550547245] [banana_detector]:  Result: X=0.350, Y=-0.001, Z=0.350
-[banana_detector-14] [INFO] [1768325861.208528218] [banana_detector]:  Result: X=0.350, Y=-0.001, Z=0.350
+[virtual_camera-11] [INFO] [1768368735.283371606] [virtual_camera]: Virtual Camera Started
+[rviz2-4] [INFO] [1768368735.303962517] [moveit_ros_visualization.motion_planning_frame]: group left_arm
+[rviz2-4] [INFO] [1768368735.303999419] [moveit_ros_visualization.motion_planning_frame]: Constructing new MoveGroup connection for group 'left_arm' in namespace ''
+[rviz2-4] [INFO] [1768368735.312215591] [move_group_interface]: Ready to take commands for planning group left_arm.
 [WARNING] [launch]: user interrupted with ctrl-c (SIGINT)
-[robot_state_publisher-2] [INFO] [1768325862.491338236] [rclcpp]: signal_handler(signum=2)
-[mujoco_ros2_control-1] [INFO] [1768325862.491407673] [rclcpp]: signal_handler(signum=2)
-[mujoco_ros2_control-1] [INFO] [1768325862.492322961] [controller_manager]: Shutdown request received....
-[move_group-3] [INFO] [1768325862.491409762] [rclcpp]: signal_handler(signum=2)
+[rviz2-4] [INFO] [1768368735.359874764] [rclcpp]: signal_handler(signum=2)
+[robot_state_publisher-2] [INFO] [1768368735.359903625] [rclcpp]: signal_handler(signum=2)
+[move_group-3] [INFO] [1768368735.359901000] [rclcpp]: signal_handler(signum=2)
+[mujoco_ros2_control-1] [INFO] [1768368735.359982832] [rclcpp]: signal_handler(signum=2)
+[mujoco_ros2_control-1] [INFO] [1768368735.360091740] [controller_manager]: Shutdown request received....
+[mujoco_ros2_control-1] [INFO] [1768368735.360188556] [controller_manager]: Shutting down all controllers in the controller manager.
 [virtual_camera-11] Traceback (most recent call last):
 [virtual_camera-11]   File "/home/zjc/openarm_ws/install/openarm_vision/lib/openarm_vision/virtual_camera", line 33, in <module>
 [virtual_camera-11]     sys.exit(load_entry_point('openarm-vision', 'console_scripts', 'virtual_camera')())
@@ -401,82 +300,34 @@
 [virtual_camera-11]   File "/opt/ros/humble/local/lib/python3.10/dist-packages/rclpy/executors.py", line 642, in _wait_for_ready_callbacks
 [virtual_camera-11]     wait_set.wait(timeout_nsec)
 [virtual_camera-11] KeyboardInterrupt
-[rviz2-4] [INFO] [1768325862.491686732] [rclcpp]: signal_handler(signum=2)
-[mujoco_ros2_control-1] [INFO] [1768325862.492393185] [controller_manager]: Shutting down all controllers in the controller manager.
-[mujoco_ros2_control-1] [INFO] [1768325862.492417768] [controller_manager]: Deactivating controller 'left_joint_trajectory_controller'
-[mujoco_ros2_control-1] [INFO] [1768325862.492451951] [controller_manager]: Shutting down controller 'left_joint_trajectory_controller'
-[mujoco_ros2_control-1] [INFO] [1768325862.492465434] [controller_manager]: Deactivating controller 'joint_state_broadcaster'
-[mujoco_ros2_control-1] [INFO] [1768325862.492480580] [controller_manager]: Shutting down controller 'joint_state_broadcaster'
-[mujoco_ros2_control-1] [INFO] [1768325862.492488723] [controller_manager]: Deactivating controller 'right_joint_trajectory_controller'
-[mujoco_ros2_control-1] [INFO] [1768325862.492503077] [controller_manager]: Shutting down controller 'right_joint_trajectory_controller'
-[mujoco_ros2_control-1] [INFO] [1768325862.492512134] [controller_manager]: Deactivating controller 'left_gripper_controller'
-[mujoco_ros2_control-1] [INFO] [1768325862.492523256] [controller_manager]: Shutting down controller 'left_gripper_controller'
-[mujoco_ros2_control-1] [INFO] [1768325862.492529958] [controller_manager]: Deactivating controller 'right_gripper_controller'
-[mujoco_ros2_control-1] [INFO] [1768325862.492538048] [controller_manager]: Shutting down controller 'right_gripper_controller'
-[mujoco_ros2_control-1] [INFO] [1768325862.492552736] [resource_manager]: 'deactivate' hardware 'openarm_right_hardware_interface' 
-[mujoco_ros2_control-1] [INFO] [1768325862.492558096] [resource_manager]: Successful 'deactivate' of hardware 'openarm_right_hardware_interface'
-[mujoco_ros2_control-1] [INFO] [1768325862.492560263] [resource_manager]: 'shutdown' hardware 'openarm_right_hardware_interface' 
-[mujoco_ros2_control-1] [INFO] [1768325862.492562862] [resource_manager]: Successful 'shutdown' of hardware 'openarm_right_hardware_interface'
-[mujoco_ros2_control-1] [INFO] [1768325862.492565790] [resource_manager]: 'deactivate' hardware 'openarm_left_hardware_interface' 
-[mujoco_ros2_control-1] [INFO] [1768325862.492568205] [resource_manager]: Successful 'deactivate' of hardware 'openarm_left_hardware_interface'
-[mujoco_ros2_control-1] [INFO] [1768325862.492569985] [resource_manager]: 'shutdown' hardware 'openarm_left_hardware_interface' 
-[mujoco_ros2_control-1] [INFO] [1768325862.492572130] [resource_manager]: Successful 'shutdown' of hardware 'openarm_left_hardware_interface'
-[mujoco_ros2_control-1] [INFO] [1768325862.492573964] [controller_manager]: Shutting down the controller manager.
+[mujoco_ros2_control-1] [INFO] [1768368735.368482094] [controller_manager]: Deactivating controller 'joint_state_broadcaster'
+[mujoco_ros2_control-1] [INFO] [1768368735.368588240] [controller_manager]: Shutting down controller 'joint_state_broadcaster'
+[mujoco_ros2_control-1] [INFO] [1768368735.368611864] [controller_manager]: Deactivating controller 'left_joint_trajectory_controller'
+[mujoco_ros2_control-1] [INFO] [1768368735.368640659] [controller_manager]: Shutting down controller 'left_joint_trajectory_controller'
+[mujoco_ros2_control-1] [INFO] [1768368735.368648596] [controller_manager]: Deactivating controller 'left_gripper_controller'
+[mujoco_ros2_control-1] [INFO] [1768368735.368661313] [controller_manager]: Shutting down controller 'left_gripper_controller'
+[mujoco_ros2_control-1] [INFO] [1768368735.368669196] [controller_manager]: Shutting down controller 'right_joint_trajectory_controller'
+[mujoco_ros2_control-1] [INFO] [1768368735.369108006] [resource_manager]: 'deactivate' hardware 'openarm_right_hardware_interface' 
+[mujoco_ros2_control-1] [INFO] [1768368735.369128841] [resource_manager]: Successful 'deactivate' of hardware 'openarm_right_hardware_interface'
+[mujoco_ros2_control-1] [INFO] [1768368735.369131621] [resource_manager]: 'shutdown' hardware 'openarm_right_hardware_interface' 
+[mujoco_ros2_control-1] [INFO] [1768368735.369134888] [resource_manager]: Successful 'shutdown' of hardware 'openarm_right_hardware_interface'
+[mujoco_ros2_control-1] [INFO] [1768368735.369138958] [resource_manager]: 'deactivate' hardware 'openarm_left_hardware_interface' 
+[mujoco_ros2_control-1] [INFO] [1768368735.369141901] [resource_manager]: Successful 'deactivate' of hardware 'openarm_left_hardware_interface'
+[mujoco_ros2_control-1] [INFO] [1768368735.369143674] [resource_manager]: 'shutdown' hardware 'openarm_left_hardware_interface' 
+[mujoco_ros2_control-1] [INFO] [1768368735.369146273] [resource_manager]: Successful 'shutdown' of hardware 'openarm_left_hardware_interface'
+[mujoco_ros2_control-1] [INFO] [1768368735.369148400] [controller_manager]: Shutting down the controller manager.
 [mujoco_ros2_control-1] terminate called after throwing an instance of 'std::runtime_error'
 [mujoco_ros2_control-1]   what():  Node needs to be associated with an executor.
-[move_group-3] [INFO] [1768325862.543345352] [moveit.ros_planning_interface.moveit_cpp]: Deleting MoveItCpp
-[grasp_planner-15] Traceback (most recent call last):
-[grasp_planner-15]   File "/home/zjc/openarm_ws/install/openarm_grasp_planner/lib/openarm_grasp_planner/grasp_planner", line 33, in <module>
-[grasp_planner-15]     sys.exit(load_entry_point('openarm-grasp-planner', 'console_scripts', 'grasp_planner')())
-[grasp_planner-15]   File "/home/zjc/openarm_ws/build/openarm_grasp_planner/openarm_grasp_planner/grasp_planner.py", line 410, in main
-[grasp_planner-15]     rclpy.shutdown()
-[grasp_planner-15]   File "/opt/ros/humble/local/lib/python3.10/dist-packages/rclpy/__init__.py", line 130, in shutdown
-[grasp_planner-15]     _shutdown(context=context)
-[grasp_planner-15]   File "/opt/ros/humble/local/lib/python3.10/dist-packages/rclpy/utilities.py", line 58, in shutdown
-[grasp_planner-15]     return context.shutdown()
-[grasp_planner-15]   File "/opt/ros/humble/local/lib/python3.10/dist-packages/rclpy/context.py", line 102, in shutdown
-[grasp_planner-15]     self.__context.shutdown()
-[grasp_planner-15] rclpy._rclpy_pybind11.RCLError: failed to shutdown: rcl_shutdown already called on the given context, at ./src/rcl/init.c:241
-[full_verification-13] Traceback (most recent call last):
-[full_verification-13]   File "/home/zjc/openarm_ws/install/openarm_grasp_planner/lib/openarm_grasp_planner/full_verification", line 33, in <module>
-[full_verification-13]     sys.exit(load_entry_point('openarm-grasp-planner', 'console_scripts', 'full_verification')())
-[full_verification-13]   File "/home/zjc/openarm_ws/build/openarm_grasp_planner/openarm_grasp_planner/full_verification.py", line 183, in main
-[full_verification-13]     rclpy.shutdown()
-[full_verification-13]   File "/opt/ros/humble/local/lib/python3.10/dist-packages/rclpy/__init__.py", line 130, in shutdown
-[full_verification-13]     _shutdown(context=context)
-[full_verification-13]   File "/opt/ros/humble/local/lib/python3.10/dist-packages/rclpy/utilities.py", line 58, in shutdown
-[full_verification-13]     return context.shutdown()
-[full_verification-13]   File "/opt/ros/humble/local/lib/python3.10/dist-packages/rclpy/context.py", line 102, in shutdown
-[full_verification-13]     self.__context.shutdown()
-[full_verification-13] rclpy._rclpy_pybind11.RCLError: failed to shutdown: rcl_shutdown already called on the given context, at ./src/rcl/init.c:241
-[banana_detector-14] Traceback (most recent call last):
-[banana_detector-14]   File "/home/zjc/openarm_ws/install/openarm_vision/lib/openarm_vision/banana_detector", line 33, in <module>
-[banana_detector-14]     sys.exit(load_entry_point('openarm-vision', 'console_scripts', 'banana_detector')())
-[banana_detector-14]   File "/home/zjc/openarm_ws/build/openarm_vision/openarm_vision/banana_detector.py", line 137, in main
-[banana_detector-14]     rclpy.shutdown()
-[banana_detector-14]   File "/opt/ros/humble/local/lib/python3.10/dist-packages/rclpy/__init__.py", line 130, in shutdown
-[banana_detector-14]     _shutdown(context=context)
-[banana_detector-14]   File "/opt/ros/humble/local/lib/python3.10/dist-packages/rclpy/utilities.py", line 58, in shutdown
-[banana_detector-14]     return context.shutdown()
-[banana_detector-14]   File "/opt/ros/humble/local/lib/python3.10/dist-packages/rclpy/context.py", line 102, in shutdown
-[banana_detector-14]     self.__context.shutdown()
-[banana_detector-14] rclpy._rclpy_pybind11.RCLError: failed to shutdown: rcl_shutdown already called on the given context, at ./src/rcl/init.c:241
-[gripper_controller-12] Traceback (most recent call last):
-[gripper_controller-12]   File "/home/zjc/openarm_ws/install/openarm_grasp_planner/lib/openarm_grasp_planner/gripper_controller", line 33, in <module>
-[gripper_controller-12]     sys.exit(load_entry_point('openarm-grasp-planner', 'console_scripts', 'gripper_controller')())
-[gripper_controller-12]   File "/home/zjc/openarm_ws/build/openarm_grasp_planner/openarm_grasp_planner/gripper_controller.py", line 150, in main
-[gripper_controller-12]     rclpy.shutdown()
-[gripper_controller-12]   File "/opt/ros/humble/local/lib/python3.10/dist-packages/rclpy/__init__.py", line 130, in shutdown
-[gripper_controller-12]     _shutdown(context=context)
-[gripper_controller-12]   File "/opt/ros/humble/local/lib/python3.10/dist-packages/rclpy/utilities.py", line 58, in shutdown
-[gripper_controller-12]     return context.shutdown()
-[gripper_controller-12]   File "/opt/ros/humble/local/lib/python3.10/dist-packages/rclpy/context.py", line 102, in shutdown
-[gripper_controller-12]     self.__context.shutdown()
-[gripper_controller-12] rclpy._rclpy_pybind11.RCLError: failed to shutdown: rcl_shutdown already called on the given context, at ./src/rcl/init.c:241
-[ERROR] [virtual_camera-11]: process has died [pid 117700, exit code -2, cmd '/home/zjc/openarm_ws/install/openarm_vision/lib/openarm_vision/virtual_camera --ros-args -r __node:=virtual_camera --params-file /tmp/launch_params_xq99h8u4'].
-[ERROR] [mujoco_ros2_control-1]: process has died [pid 117471, exit code -6, cmd '/home/zjc/openarm_ws/install/mujoco_ros2_control/lib/mujoco_ros2_control/mujoco_ros2_control --ros-args --params-file /tmp/launch_params_bc57jzyv --params-file /home/zjc/openarm_ws/install/openarm_bringup/share/openarm_bringup/config/v10_controllers/openarm_v10_bimanual_controllers.yaml --params-file /tmp/launch_params_as2tpkua --params-file /tmp/launch_params_xizw5vxm --params-file /tmp/launch_params_2z243x_a'].
-[rviz2-4] [WARN] [1768325862.646738055] [interactive_marker_display_104775804274688]: Server not available while running, resetting
-[INFO] [robot_state_publisher-2]: process has finished cleanly [pid 117473]
+[move_group-3] [INFO] [1768368735.397334082] [moveit.ros_planning_interface.moveit_cpp]: Deleting MoveItCpp
+[ERROR] [virtual_camera-11]: process has died [pid 11890, exit code -2, cmd '/home/zjc/openarm_ws/install/openarm_vision/lib/openarm_vision/virtual_camera --ros-args -r __node:=virtual_camera --params-file /tmp/launch_params_k58b9ld7'].
+[ERROR] [mujoco_ros2_control-1]: process has died [pid 11727, exit code -6, cmd '/home/zjc/openarm_ws/install/mujoco_ros2_control/lib/mujoco_ros2_control/mujoco_ros2_control --ros-args --params-file /tmp/launch_params_gknfn6k6 --params-file /home/zjc/openarm_ws/install/openarm_bringup/share/openarm_bringup/config/v10_controllers/openarm_v10_bimanual_controllers.yaml --params-file /tmp/launch_params_pmphxsz_ --params-file /tmp/launch_params_81ms2f94 --params-file /tmp/launch_params_hx8z7y_x'].
+[INFO] [robot_state_publisher-2]: process has finished cleanly [pid 11729]
+[INFO] [spawner-8]: process has finished cleanly [pid 11847]
+[ERROR] [ros2-9]: process has died [pid 11886, exit code 2, cmd 'ros2 param set /move_group use_sim_time true'].
+[INFO] [spawner-7]: process has finished cleanly [pid 11831]
+[ERROR] [ros2-10]: process has died [pid 11888, exit code 2, cmd 'ros2 param set /move_group use_sim_time true'].
+[rviz2-4] [ERROR] [1768368735.594711837] [moveit_background_processing.background_processing]: Exception caught while processing action 'Frame::changePlanningGroup': std::future_error: Broken promise
+[rviz2-4] [INFO] [1768368735.599447194] [moveit_ros.planning_scene_monitor.planning_scene_monitor]: Stopping planning scene monitor
 [openarm_bimanual_viewer-5] Traceback (most recent call last):
 [openarm_bimanual_viewer-5]   File "/home/zjc/openarm_ws/install/openarm_mujoco_viewer/lib/openarm_mujoco_viewer/openarm_bimanual_viewer", line 33, in <module>
 [openarm_bimanual_viewer-5]     sys.exit(load_entry_point('openarm-mujoco-viewer', 'console_scripts', 'openarm_bimanual_viewer')())
@@ -503,48 +354,31 @@
 [openarm_bimanual_viewer-5]   File "/home/zjc/.local/lib/python3.10/site-packages/glfw/__init__.py", line 687, in errcheck
 [openarm_bimanual_viewer-5]     def errcheck(result, *args):
 [openarm_bimanual_viewer-5] KeyboardInterrupt
-[ERROR] [banana_detector-14]: process has died [pid 117793, exit code 1, cmd '/home/zjc/openarm_ws/install/openarm_vision/lib/openarm_vision/banana_detector --ros-args -r __node:=banana_detector --params-file /tmp/launch_params_jj5qr4oa'].
-[ERROR] [full_verification-13]: process has died [pid 117773, exit code 1, cmd '/home/zjc/openarm_ws/install/openarm_grasp_planner/lib/openarm_grasp_planner/full_verification --ros-args -r __node:=full_verification --params-file /tmp/launch_params_airq3aj8'].
-[move_group-3] [INFO] [1768325862.747319717] [moveit_ros.planning_scene_monitor.planning_scene_monitor]: Stopped publishing maintained planning scene.
-[move_group-3] [INFO] [1768325862.747956664] [moveit_ros.planning_scene_monitor.planning_scene_monitor]: Stopping world geometry monitor
-[move_group-3] [INFO] [1768325862.748485206] [moveit_ros.planning_scene_monitor.planning_scene_monitor]: Stopping planning scene monitor
+[move_group-3] [INFO] [1768368735.615232973] [moveit_ros.planning_scene_monitor.planning_scene_monitor]: Stopped publishing maintained planning scene.
+[move_group-3] [INFO] [1768368735.616073568] [moveit_ros.planning_scene_monitor.planning_scene_monitor]: Stopping world geometry monitor
+[move_group-3] [INFO] [1768368735.616346230] [moveit_ros.planning_scene_monitor.planning_scene_monitor]: Stopping planning scene monitor
 [move_group-3] Warning: class_loader.ClassLoader: SEVERE WARNING!!! Attempting to unload library while objects created by this loader exist in the heap! You should delete your objects before attempting to unload the library or destroying the ClassLoader. The library will NOT be unloaded.
 [move_group-3]          at line 127 in ./src/class_loader.cpp
-[ERROR] [openarm_bimanual_viewer-5]: process has died [pid 117495, exit code -2, cmd '/home/zjc/openarm_ws/install/openarm_mujoco_viewer/lib/openarm_mujoco_viewer/openarm_bimanual_viewer --ros-args --params-file /tmp/launch_params_oxc0he45'].
 [move_group-3] Stack trace (most recent call last):
 [move_group-3] #16   Object "", at 0xffffffffffffffff, in 
-[move_group-3] #15   Object "/opt/ros/humble/lib/moveit_ros_move_group/move_group", at 0x5d9511adb724, in 
-[ERROR] [grasp_planner-15]: process has died [pid 117795, exit code 1, cmd '/home/zjc/openarm_ws/install/openarm_grasp_planner/lib/openarm_grasp_planner/grasp_planner --ros-args -r __node:=grasp_planner --params-file /tmp/launch_params_tt3fw44s'].
-[ERROR] [gripper_controller-12]: process has died [pid 117771, exit code 1, cmd '/home/zjc/openarm_ws/install/openarm_grasp_planner/lib/openarm_grasp_planner/gripper_controller --ros-args -r __node:=gripper_controller --params-file /tmp/launch_params_7r8ivfey'].
-[move_group-3] #14   Source "../csu/libc-start.c", line 392, in __libc_start_main_impl [0x7d8bbec29e3f]
-[move_group-3] #13   Source "../sysdeps/nptl/libc_start_call_main.h", line 58, in __libc_start_call_main [0x7d8bbec29d8f]
-[move_group-3] #12   Object "/opt/ros/humble/lib/moveit_ros_move_group/move_group", at 0x5d9511ada65b, in 
-[move_group-3] #11   Object "/opt/ros/humble/lib/moveit_ros_move_group/move_group", at 0x5d9511adc709, in 
-[move_group-3] #10   Object "/opt/ros/humble/lib/libmoveit_cpp.so.2.5.9", at 0x7d8bbf933876, in moveit_cpp::MoveItCpp::~MoveItCpp()
-[move_group-3] #9    Object "/opt/ros/humble/lib/libmoveit_cpp.so.2.5.9", at 0x7d8bbf931ba9, in 
-[move_group-3] #8    Object "/opt/ros/humble/lib/libmoveit_trajectory_execution_manager.so.2.5.9", at 0x7d8bbeed1495, in trajectory_execution_manager::TrajectoryExecutionManager::~TrajectoryExecutionManager()
-[move_group-3] #7    Object "/opt/ros/humble/lib/libmoveit_trajectory_execution_manager.so.2.5.9", at 0x7d8bbeee43a9, in 
-[move_group-3] #6    Object "/opt/ros/humble/lib/librclcpp.so", at 0x7d8bbf591eec, in rclcpp::Node::~Node()
-[move_group-3] #5    Object "/opt/ros/humble/lib/librclcpp.so", at 0x7d8bbf591e8e, in rclcpp::Node::~Node()
-[move_group-3] #4    Object "/opt/ros/humble/lib/librclcpp.so", at 0x7d8bbf56cee9, in 
-[move_group-3] #3    Object "/opt/ros/humble/lib/librclcpp.so", at 0x7d8bbf59b539, in 
-[move_group-3] #2    Object "/opt/ros/humble/lib/librclcpp.so", at 0x7d8bbf59b480, in rclcpp::node_interfaces::NodeBase::~NodeBase()
-[move_group-3] #1    Object "/opt/ros/humble/lib/librclcpp.so", at 0x7d8bbf56cee9, in 
-[move_group-3] #0    Object "/opt/ros/humble/lib/librclcpp.so", at 0x7d8bbf571da1, in rclcpp::CallbackGroup::~CallbackGroup()
-[move_group-3] Segmentation fault (Address not mapped to object [0x7d8bb422f798])
-[ERROR] [move_group-3]: process has died [pid 117482, exit code -11, cmd '/opt/ros/humble/lib/moveit_ros_move_group/move_group --ros-args --params-file /tmp/launch_params_lqkko0zm --params-file /tmp/launch_params_jb2djar9'].
+[move_group-3] #15   Object "/opt/ros/humble/lib/moveit_ros_move_group/move_group", at 0x5dd60a5c1724, in 
+[ERROR] [openarm_bimanual_viewer-5]: process has died [pid 11735, exit code -2, cmd '/home/zjc/openarm_ws/install/openarm_mujoco_viewer/lib/openarm_mujoco_viewer/openarm_bimanual_viewer --ros-args --params-file /tmp/launch_params_ux2gdtbr'].
+[move_group-3] #14   Source "../csu/libc-start.c", line 392, in __libc_start_main_impl [0x758ec0c29e3f]
+[move_group-3] #13   Source "../sysdeps/nptl/libc_start_call_main.h", line 58, in __libc_start_call_main [0x758ec0c29d8f]
+[move_group-3] #12   Object "/opt/ros/humble/lib/moveit_ros_move_group/move_group", at 0x5dd60a5c065b, in 
+[move_group-3] #11   Object "/opt/ros/humble/lib/moveit_ros_move_group/move_group", at 0x5dd60a5c2709, in 
+[move_group-3] #10   Object "/opt/ros/humble/lib/libmoveit_cpp.so.2.5.9", at 0x758ec1883876, in moveit_cpp::MoveItCpp::~MoveItCpp()
+[move_group-3] #9    Object "/opt/ros/humble/lib/libmoveit_cpp.so.2.5.9", at 0x758ec1881ba9, in 
+[move_group-3] #8    Object "/opt/ros/humble/lib/libmoveit_trajectory_execution_manager.so.2.5.9", at 0x758ec0b8d495, in trajectory_execution_manager::TrajectoryExecutionManager::~TrajectoryExecutionManager()
+[move_group-3] #7    Object "/opt/ros/humble/lib/libmoveit_trajectory_execution_manager.so.2.5.9", at 0x758ec0ba03a9, in 
+[move_group-3] #6    Object "/opt/ros/humble/lib/librclcpp.so", at 0x758ec14e1eec, in rclcpp::Node::~Node()
+[move_group-3] #5    Object "/opt/ros/humble/lib/librclcpp.so", at 0x758ec14e1e8e, in rclcpp::Node::~Node()
+[move_group-3] #4    Object "/opt/ros/humble/lib/librclcpp.so", at 0x758ec14bcee9, in 
+[move_group-3] #3    Object "/opt/ros/humble/lib/librclcpp.so", at 0x758ec14eb539, in 
+[move_group-3] #2    Object "/opt/ros/humble/lib/librclcpp.so", at 0x758ec14eb480, in rclcpp::node_interfaces::NodeBase::~NodeBase()
+[move_group-3] #1    Object "/opt/ros/humble/lib/librclcpp.so", at 0x758ec14bcee9, in 
+[move_group-3] #0    Object "/opt/ros/humble/lib/librclcpp.so", at 0x758ec14c1da1, in rclcpp::CallbackGroup::~CallbackGroup()
+[move_group-3] Segmentation fault (Address not mapped to object [0x758eaa29d798])
+[ERROR] [rviz2-4]: process has died [pid 11733, exit code -11, cmd '/opt/ros/humble/lib/rviz2/rviz2 -d /home/zjc/openarm_ws/install/openarm_bimanual_moveit_config/share/openarm_bimanual_moveit_config/config/moveit.rviz --ros-args --params-file /tmp/launch_params_mzcs466n --params-file /tmp/launch_params_mqgy73l_ --params-file /tmp/launch_params_y2fpcweo'].
+[ERROR] [move_group-3]: process has died [pid 11731, exit code -11, cmd '/opt/ros/humble/lib/moveit_ros_move_group/move_group --ros-args --params-file /tmp/launch_params_1_sth80c --params-file /tmp/launch_params_ugok4va3'].
 [move_group-3] [0m
-[rviz2-4] 
-[rviz2-4] >>> [rcutils|error_handling.c:108] rcutils_set_error_state()
-[rviz2-4] This error state is being overwritten:
-[rviz2-4] 
-[rviz2-4]   'rcl node's context is invalid, at ./src/rcl/node.c:428'
-[rviz2-4] 
-[rviz2-4] with this new error message:
-[rviz2-4] 
-[rviz2-4]   'publisher's context is invalid, at ./src/rcl/publisher.c:389'
-[rviz2-4] 
-[rviz2-4] rcutils_reset_error() should be called after error handling to avoid this.
-[rviz2-4] <<<
-[rviz2-4] [INFO] [1768325862.978962854] [moveit_ros.planning_scene_monitor.planning_scene_monitor]: Stopping planning scene monitor
-[ERROR] [rviz2-4]: process has died [pid 117491, exit code -11, cmd '/opt/ros/humble/lib/rviz2/rviz2 -d /home/zjc/openarm_ws/install/openarm_bimanual_moveit_config/share/openarm_bimanual_moveit_config/config/moveit.rviz --ros-args --params-file /tmp/launch_params_1m5_lian --params-file /tmp/launch_params_9ppvjqq2 --params-file /tmp/launch_params_jukk94yj'].

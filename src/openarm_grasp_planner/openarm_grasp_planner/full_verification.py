@@ -2,7 +2,7 @@ import rclpy
 from rclpy.node import Node
 import time
 import threading
-from std_srvs.srv import SetBool
+from std_srvs.srv import SetBool, Trigger
 from moveit_msgs.srv import GraspPlanning
 import tf2_ros
 
@@ -17,6 +17,8 @@ class FullVerificationSystem(Node):
         # 服务客户端
         self.grasp_planner_client = self.create_client(GraspPlanning, 'plan_grasp')
         self.gripper_control_client = self.create_client(SetBool, 'control_gripper')
+        # 抓取后抬起机械臂的服务客户端
+        self.lift_client = self.create_client(Trigger, 'lift_after_grasp')
         
         # 等待服务可用
         while not self.grasp_planner_client.wait_for_service(timeout_sec=1.0):
@@ -24,6 +26,9 @@ class FullVerificationSystem(Node):
         
         while not self.gripper_control_client.wait_for_service(timeout_sec=1.0):
             self.get_logger().info('夹爪控制服务不可用，等待中...')
+
+        while not self.lift_client.wait_for_service(timeout_sec=1.0):
+            self.get_logger().info('抬起机械臂服务不可用，等待中...')
         
         self.get_logger().info('全流程实验验证系统已启动')
         self.get_logger().info('等待视觉模块定位目标物体...')
@@ -100,14 +105,40 @@ class FullVerificationSystem(Node):
             
             # 步骤5: 抓取完成，提升机械臂
             self.get_logger().info('步骤5: 抓取完成，提升机械臂')
-            self.get_logger().info('注意：请确保机械臂控制器已启动并订阅grasp_trajectory话题')
-            time.sleep(5)  # 等待机械臂完成提升动作
+            if not self.lift_arm():
+                self.get_logger().error('提升机械臂失败')
+                return False
+            # 给机械臂一些时间完成抬起动作
+            time.sleep(5)
             
             self.get_logger().info('=== 全流程抓取验证完成 ===')
             return True
             
         except Exception as e:
             self.get_logger().error(f'全流程验证失败: {e}')
+            return False
+
+    def lift_arm(self):
+        """调用抬起机械臂服务。"""
+        req = Trigger.Request()
+
+        future = self.lift_client.call_async(req)
+
+        # 使用单独的executor避免spin冲突
+        executor = rclpy.executors.SingleThreadedExecutor()
+        executor.add_node(self)
+        executor.spin_until_future_complete(future)
+        executor.remove_node(self)
+
+        if future.result() is not None:
+            if future.result().success:
+                self.get_logger().info('提升机械臂成功')
+                return True
+            else:
+                self.get_logger().error(f'提升机械臂失败: {future.result().message}')
+                return False
+        else:
+            self.get_logger().error('抬起机械臂服务调用失败')
             return False
     
     def request_grasp_planning(self):
