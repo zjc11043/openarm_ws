@@ -162,10 +162,16 @@ class OpenArmBimanualViewer(Node):
             self.cam,
         )
 
-    # /joint_states callback: keep only OpenArm left/right joints
+    # /joint_states callback: keep only OpenArm arm + gripper joints
     def joint_state_cb(self, msg: JointState) -> None:
         for name, pos in zip(msg.name, msg.position):
-            if name.startswith("openarm_left_joint") or name.startswith("openarm_right_joint"):
+            # 包含左/右臂关节，以及左右夹爪指关节
+            if (
+                name.startswith("openarm_left_joint")
+                or name.startswith("openarm_right_joint")
+                or name.startswith("openarm_left_finger_joint")
+                or name.startswith("openarm_right_finger_joint")
+            ):
                 self.last_positions[name] = float(pos)
 
     # Timer: write joint positions into MuJoCo and render
