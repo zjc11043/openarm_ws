@@ -20,12 +20,13 @@
         <position forcelimited="true" forcerange="-7 7" />
       </default>
       <default class="motor_finger">
-        <joint limited="true" type="slide" damping="10.0"/>
-        <position forcelimited="true" forcerange="-20 20" ctrllimited="true" ctrlrange="0 0.044" kp="500" kv="50"/>
+        <!-- 极端稳定模式：显著降低刚度和最大力，夹爪更“软” -->
+        <joint limited="true" type="slide" damping="60.0"/>
+        <position forcelimited="true" forcerange="-100 100" ctrllimited="true" ctrlrange="0 0.044" kp="500" kv="250"/>
       </default>
       <default class="collision">
         <geom material="collision_material" condim="3" conaffinity="1" priority="1" group="3"
-          solref="0.005 1" friction="1 0.01 0.01" />
+          solref="0.02 1" friction="12 1.2 0.012" />
         <!-- 这里保留 default 里的 equality 设置没问题，它只是定义参数 -->
         <equality solimp="0.99 0.999 1e-05" solref="0.005 1" />
       </default>
@@ -295,7 +296,7 @@
                               diaginertia="0.0001 0.0001 0.0001" />
                             <geom name="openarm_left_right_finger_collision"
                               pos="0.0 0.05 -0.673001" quat="1.0 0.0 0.0 0.0" type="mesh"
-                              mesh="finger_collision_left" class="collision" />
+                              mesh="finger_collision_left" class="collision" friction="7.0 0.7 0.04" />
                             <geom name="openarm_left_right_finger_visual_0" pos="0.0 0.05 -0.673001"
                               quat="1.0 0.0 0.0 0.0" material="default_material" type="mesh"
                               mesh="finger_0_flip.obj" class="visual" />
@@ -314,7 +315,7 @@
                               diaginertia="0.0001 0.0001 0.0001" />
                             <geom name="openarm_left_left_finger_collision"
                               pos="0.0 -0.05 -0.673001" quat="1.0 0.0 0.0 0.0" type="mesh"
-                              mesh="finger_collision" class="collision" />
+                              mesh="finger_collision" class="collision" friction="7.0 0.7 0.04" />
                             <geom name="openarm_left_left_finger_visual_0" pos="0.0 -0.05 -0.673001"
                               quat="1.0 0.0 0.0 0.0" material="default_material" type="mesh"
                               mesh="finger_0.obj" class="visual" />
@@ -480,7 +481,7 @@
                               diaginertia="0.0001 0.0001 0.0001" />
                             <geom name="openarm_right_right_finger_collision"
                               pos="0.0 0.05 -0.673001" quat="1.0 0.0 0.0 0.0" type="mesh"
-                              mesh="finger_collision_left" class="collision" />
+                              mesh="finger_collision_left" class="collision" friction="7.0 0.7 0.04" />
                             <geom name="openarm_right_right_finger_visual_0"
                               pos="0.0 0.05 -0.673001" quat="1.0 0.0 0.0 0.0"
                               material="default_material" type="mesh" mesh="finger_0_flip.obj"
@@ -500,7 +501,7 @@
                               diaginertia="0.0001 0.0001 0.0001" />
                             <geom name="openarm_right_left_finger_collision"
                               pos="0.0 -0.05 -0.673001" quat="1.0 0.0 0.0 0.0" type="mesh"
-                              mesh="finger_collision" class="collision" />
+                              mesh="finger_collision" class="collision" friction="7.0 0.7 0.04" />
                             <geom name="openarm_right_left_finger_visual_0"
                               pos="0.0 -0.05 -0.673001" quat="1.0 0.0 0.0 0.0"
                               material="default_material" type="mesh" mesh="finger_0.obj"

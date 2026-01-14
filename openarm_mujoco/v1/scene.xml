@@ -52,23 +52,33 @@
         condim="3": 设置接触动力学维度。3表示普通摩擦接触，4表示增加抗扭转摩擦（抓取仿真常用）
       -->
       <geom name="table_top" 
-            type="box" 
-            size="0.25 0.3 0.15" 
-            rgba="0.8 0.8 0.8 1"
-            friction="1 0.005 0.0001" 
-            contype="1" 
-            conaffinity="1" 
-            condim="3"/>
+        type="box" 
+        size="0.25 0.3 0.15" 
+        rgba="0.8 0.8 0.8 1"
+        friction="0.4 0.2 0.01" 
+        contype="1" 
+        conaffinity="1" 
+        condim="3"
+        solref="0.001 1" 
+        solimp="0.98 0.995 0.0001"/>
     </body>
 
     <body name="banana" pos="0.35 0 0.35" euler="0 0 1.57">
-      <joint name="banana_joint" type="free" damping="0.1" frictionloss="0.01"/> 
+      <!-- 极端稳定模式：大质量+高阻尼，几乎不可能被弹飞 -->
+      <joint name="banana_joint" type="free" damping="3.0" frictionloss="0.2"/> 
       <!-- 1. 视觉模型：保持 contype/conaffinity 为 0，通常放在 group 1 (渲染组) -->
-      <geom type="mesh" mesh="mesh_banana_visual" material="mat_banana" 
-            contype="0" conaffinity="0" group="1"/>
-      <inertial pos="0 0 0" mass="0.2" diaginertia="0.001 0.001 0.001"/> 
-      <geom type="capsule" size="0.02 0.06" euler="1.57 0 0" pos="0 0 0" 
-          contype="1" conaffinity="1" friction="1 0.05 0.01" group="3" />
+        <geom type="mesh" mesh="mesh_banana_visual" material="mat_banana" 
+          contype="0" conaffinity="0" group="1" rgba="1 1 1 0"/>
+      <!-- 极端提高香蕉质量，进一步减小接触瞬间加速度 -->
+      <inertial pos="0 0 0" mass="0.8" diaginertia="0.01 0.01 0.01"/> 
+           <!-- 提高香蕉与手指/桌面的摩擦，减小被挤出/打滑的概率；
+             接触参数设置为“中等偏软”，避免被压进桌子太深甚至看不到 -->
+           <!-- <geom type="capsule" size="0.02 0.06" euler="1.57 0 0" pos="0 0 0"  -->
+           <!-- 将香蕉的碰撞几何设置为方块，配合较软接触，减小爆炸性反弹 -->
+           <geom type="box" size="0.02 0.07 0.04" pos="0 0 0" 
+          contype="1" conaffinity="1" condim="3" friction="10.0 1.0 0.05" 
+          solref="0.05 1" solimp="0.9 0.98 0.001" 
+          rgba="1 1 0 1" group="1" />
       <!-- <geom type="box" size="0.02 0.07 0.02" pos="0 0 0" 
           contype="1" conaffinity="1" 
           friction="2.0 0.1 0.002" 
