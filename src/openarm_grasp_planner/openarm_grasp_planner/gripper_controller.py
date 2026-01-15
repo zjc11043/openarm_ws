@@ -12,10 +12,9 @@ class GripperController(Node):
         # 夹爪状态参数（根据 SRDF 定义：0.0=闭合，0.060=更大打开）
         # 注意：位置值表示手指分开的距离，0.0 表示闭合，0.060 表示完全打开
         self.gripper_open_position = 0.060  # 夹爪打开位置（手指分开）
-        self.gripper_closed_position = 0.0  # 夹爪完全闭合位置（手指靠拢）
         # 夹爪抓取位置：不完全关闭，只关闭到能夹住香蕉的程度（约0.02-0.03米）
         # 香蕉直径约为0.04米，所以关闭到0.03米可以夹住香蕉
-        self.gripper_grasp_position = 0.03  # 夹爪抓取位置（能夹住香蕉但不完全关闭）
+        self.gripper_closed_position = 0.043  # 夹爪抓取位置（能夹住香蕉但不完全关闭）
         self.gripper_max_effort = 100.0  # 最大抓取力（增加以更好地夹住香蕉）
         
         # 创建Action客户端用于控制夹爪（双机械臂版本）
@@ -81,23 +80,30 @@ class GripperController(Node):
             from threading import Thread
 
             def staged_close():
-                # 多段目标：从当前/打开位，依次缩小步长再到最终闭合值
-                # 这里使用 0.05  -> gripper_closed_position
                 import time
-                self.get_logger().info('开始多段闭合：阶段 1 -> 0.05')
-                self.send_gripper_command(self.left_gripper_client, 0.05, "左")
-                time.sleep(0.4)
-                self.get_logger().info('多段闭合：阶段 2 -> 0.045')
-                self.send_gripper_command(self.left_gripper_client, 0.045, "左")
-                time.sleep(0.4)
-                self.get_logger().info(f'多段闭合：阶段 3 -> 最终 {self.gripper_closed_position:.3f}')
-                self.send_gripper_command(self.left_gripper_client, self.gripper_closed_position, "左")
+                # 获取当前左夹爪位置，若不可用则从打开位开始
+                start_pos = self.current_left_gripper_position
+                if start_pos is None:
+                    start_pos = self.gripper_open_position
+                end_pos = self.gripper_closed_position
+                step = 0.0002  # 每步收紧距离（米）
+                interval = 0.1  # 每步间隔时间（秒）
+                pos = start_pos
+                self.get_logger().info(f'开始匀速闭合：从 {pos:.3f} 到 {end_pos:.3f}，步长 {step:.3f}')
+                while pos - end_pos > 1e-4:
+                    pos = max(pos - step, end_pos)
+                    self.send_gripper_command(self.left_gripper_client, pos, "左")
+                    time.sleep(interval)
+                self.get_logger().info(f'匀速闭合完成，最终到达 {end_pos:.3f}')
+                self.send_gripper_command(self.left_gripper_client, end_pos, "左")
 
             Thread(target=staged_close, daemon=True).start()
             left_result = True
+            action = "闭合"
         else:
             # 打开时仍然一次性命令到打开位置即可
             left_result = self.send_gripper_command(self.left_gripper_client, target_position, "左")
+            action = "打开"
         
         if left_result:
             response.success = True

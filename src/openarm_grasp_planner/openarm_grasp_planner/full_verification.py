@@ -101,7 +101,7 @@ class FullVerificationSystem(Node):
             # 步骤4: 闭合夹爪
             self.get_logger().info('步骤4: 闭合夹爪')
             self.control_gripper(True)  # True表示闭合夹爪
-            time.sleep(2)
+            time.sleep(9)
             
             # 步骤5: 抓取完成，提升机械臂
             self.get_logger().info('步骤5: 抓取完成，提升机械臂')
