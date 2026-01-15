@@ -20,21 +20,28 @@
         <position forcelimited="true" forcerange="-7 7" />
       </default>
       <default class="motor_finger">
-        <joint limited="true" type="slide" damping="10.0"/>
+        <joint limited="true" type="slide" damping="15.0"/>
         <!-- 降低kv从50到20，减慢夹手关闭速度，避免过快冲击 -->
-        <position forcelimited="true" forcerange="-20 20" ctrllimited="true" ctrlrange="0 0.044" kp="500" kv="20"/>
+        <position forcelimited="true" forcerange="-40 40" ctrllimited="true" ctrlrange="0 0.06" kp="60" kv="25"/>
       </default>
       <default class="collision">
         <geom material="collision_material" condim="3" conaffinity="1" priority="1" group="3"
-          solref="0.02 1" friction="12 1.2 0.012" />
+          solref="0.015 1.1" solimp="0.7 0.95 0.005" friction="3 2 0.05" />
         <!-- 这里保留 default 里的 equality 设置没问题，它只是定义参数 -->
         <equality solimp="0.99 0.999 1e-05" solref="0.005 1" />
       </default>
       <!-- 为夹手手指定义更高的摩擦系数，以便更好地抓住物体 -->
       <!-- 大幅增加摩擦系数，特别是扭转摩擦（第二个值），防止物体在夹手中滑动 -->
       <default class="finger_collision">
-        <geom material="collision_material" condim="4" conaffinity="1" priority="1" group="3"
-          solref="0.02 1" solimp="0.9 0.95 0.001" friction="5.0 0.5 0.1" />
+        <geom material="collision_material" 
+        condim="4" 
+        conaffinity="1" 
+        priority="1" 
+        group="3"
+        solref="0.012 1.2"       
+        solimp="0.5 0.85 0.02"    
+        friction="2.5 1.5 0.3"    
+        margin="0.0005"/>         <!-- 减小margin，精确接触 -->
       </default>
       <default class="visual">
         <geom material="visualgeom" contype="0" conaffinity="0" group="2" />

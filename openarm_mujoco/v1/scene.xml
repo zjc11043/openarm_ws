@@ -1,5 +1,5 @@
 <mujoco model="openarm_bimanual scene">
-<option timestep="0.002" iterations="50" solver="Newton" tolerance="1e-4" impratio="10">
+<option timestep="0.002" iterations="80" solver="Newton" tolerance="1e-8" impratio="3">
     <flag contact="enable" energy="enable"/>
 </option>
 
@@ -53,14 +53,21 @@
         增加margin="0.001"以防止香蕉穿模
       -->
       <geom name="table_top" 
-            type="box" 
-            size="0.25 0.3 0.15" 
-            rgba="0.8 0.8 0.8 1"
-            friction="1 0.005 0.0001" 
-            contype="1" 
-            conaffinity="1" 
-            condim="3"
-            margin="0.001"/>
+      type="box" 
+      size="0.25 0.3 0.15" 
+      rgba="0.8 0.8 0.8 1"
+      
+      friction="5 0.5 0.05"    
+      
+      contype="1" 
+      conaffinity="1" 
+      condim="4"                 
+      
+      solref="0.02 1.5"          
+      solimp="0.8 0.95 0.005"    
+      
+      margin="0.003"
+      />                
     </body>
 
     <body name="banana" pos="0.35 0 0.35" euler="0 0 1.57">
@@ -79,13 +86,15 @@
       <inertial pos="0 0 0" mass="0.2" diaginertia="0.00026 0.00004 0.00026"/> 
       <!-- 大幅增加摩擦系数以防止滑动：滑动摩擦、扭转摩擦和滚动摩擦都大幅增加 -->
       <!-- 增加margin防止穿模，增加摩擦系数以更好地被夹手抓住 -->
-      <geom type="capsule" size="0.02 0.06" euler="1.57 0 0" pos="0 0 0" 
-          contype="1" conaffinity="1" 
-          friction="5.0 0.5 0.1" 
-          solref="0.02 1" 
-          solimp="0.9 0.95 0.001" 
-          margin="0.005"
-          group="3" />
+        <geom type="box" size="0.02 0.06 0.02" pos="0 0 0"
+          contype="1" conaffinity="1"
+          friction="0.7 0.1 0.001"
+          solref="0.015 0.9"
+          solimp="0.6 0.95 0.01"
+          margin="0.001"
+          rgba="1 1 0 1"
+          group="1"
+          mass="0.8" />
       <!-- <geom type="box" size="0.02 0.07 0.02" pos="0 0 0" 
           contype="1" conaffinity="1" 
           friction="2.0 0.1 0.002" 
