@@ -151,6 +151,7 @@ class GraspPlanner(Node):
         self.get_logger().info('预抓取成功，开始规划最终抓取姿态')
         self.moveit_result_event.clear()
         self.moveit_result = None
+        grasp.grasp_pose.pose.position.x -= 0.02
         self.plan_grasp_trajectory_async(grasp)
 
         if not self.moveit_result_event.wait(timeout=600.0):
@@ -196,7 +197,7 @@ class GraspPlanner(Node):
         # 并限制在 [0.05, 0.20] 之间，避免抬起距离过大导致规划失败
         lift_distance = self.last_grasp.post_grasp_retreat.desired_distance
         if lift_distance <= 0.0:
-            lift_distance = 0.15
+            lift_distance = 0.10
         lift_distance = max(0.05, min(lift_distance, 0.20))
 
         self.get_logger().info(
@@ -294,6 +295,7 @@ class GraspPlanner(Node):
         """
         # 基于当前 grasp 复制一个抬起后的 grasp，用于生成约束
         lifted_grasp = copy.deepcopy(grasp_pose)
+        lifted_grasp.grasp_pose.pose.position.x += 0.03
         lifted_grasp.grasp_pose.pose.position.z += lift_distance
 
         goal_msg = MoveGroup.Goal()
@@ -519,8 +521,8 @@ class GraspPlanner(Node):
         
         grasp.grasp_pose.header.frame_id = 'openarm_body_link0'
         grasp.grasp_pose.pose.position.x = target_pose.translation.x
-        grasp.grasp_pose.pose.position.y = target_pose.translation.y
-        grasp.grasp_pose.pose.position.z = target_pose.translation.z
+        grasp.grasp_pose.pose.position.y = target_pose.translation.y 
+        grasp.grasp_pose.pose.position.z = target_pose.translation.z 
         
         grasp.grasp_pose.pose.orientation.x = 1.0
         grasp.grasp_pose.pose.orientation.y = 0.0

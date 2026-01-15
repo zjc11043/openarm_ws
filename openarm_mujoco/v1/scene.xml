@@ -71,10 +71,11 @@
     </body>
 
     <body name="banana" pos="0.35 0 0.35" euler="0 0 1.57">
-      <joint name="banana_joint" type="free" damping="0.5" frictionloss="0.05"/> 
+      <joint name="banana_joint" type="free" damping="0.5" frictionloss="0.02"/> 
       <!-- 1. 视觉模型：保持 contype/conaffinity 为 0，通常放在 group 1 (渲染组) -->
+      <!-- 视觉模型不参与碰撞，不影响识别和规划，不需要margin和condim -->
       <geom type="mesh" mesh="mesh_banana_visual" material="mat_banana" 
-            contype="0" conaffinity="0" group="1" condim="4" />
+            contype="0" conaffinity="0" group="1" />
       <!-- 
         惯性参数修正：香蕉碰撞体是胶囊形（capsule size="0.02 0.06"），
         需要根据胶囊形状计算正确的转动惯量，而不是使用各向同性的极小值。
@@ -85,16 +86,16 @@
       -->
       <inertial pos="0 0 0" mass="0.2" diaginertia="0.00026 0.00004 0.00026"/> 
       <!-- 大幅增加摩擦系数以防止滑动：滑动摩擦、扭转摩擦和滚动摩擦都大幅增加 -->
-      <!-- 增加margin防止穿模，增加摩擦系数以更好地被夹手抓住 -->
-        <geom type="box" size="0.02 0.06 0.02" pos="0 0 0"
-          contype="1" conaffinity="1"
-          friction="0.7 0.1 0.001"
-          solref="0.015 0.9"
-          solimp="0.6 0.95 0.01"
-          margin="0.001"
-          rgba="1 1 0 1"
-          group="1"
-          mass="0.8" />
+      <!-- 增加margin防止穿模，提高接触稳定性，同时不影响视觉识别和MoveIt规划 -->
+      <!-- margin=0.003米（3毫米）是合适的值：足够防止穿模，又不会影响规划精度 -->
+      <geom type="capsule" size="0.02 0.06" euler="1.57 0 0" pos="0 0 0" 
+          contype="1" conaffinity="1" 
+          friction="3.0 0.5 0.5" 
+          solref="0.02 1" 
+          solimp="0.9 0.95 0.001" 
+          margin="0.005"
+          condim="4"
+          group="3" />
       <!-- <geom type="box" size="0.02 0.07 0.02" pos="0 0 0" 
           contype="1" conaffinity="1" 
           friction="2.0 0.1 0.002" 
